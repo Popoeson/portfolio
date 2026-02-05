@@ -116,6 +116,43 @@
     }
 
     /* ---------- BUTTON ---------- */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Glass primary button */
+.btn-glass {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--text-color);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Glass outline variant */
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--card-border);
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.2);
+} 
+
+    /* ---------- BUTTON ---------- 
     .btn {
       display: inline-block;
       padding: 12px 25px;
@@ -131,7 +168,7 @@
 
     .btn:hover {
       background: #1f5d81;
-    }
+    } */
 
     /* ---------- HERO ---------- */
     #hero {
@@ -156,7 +193,7 @@
   margin-top: 15px;
 }
 
-/* Outline-style secondary button */
+/* Outline-style secondary button 
 .btn-outline {
   background: transparent;
   color: var(--text-color);
@@ -166,7 +203,7 @@
 
 .btn-outline:hover {
   background: rgba(255,255,255,0.2);
-}
+} */
 
     /* ---------- PROFILE IMAGE ---------- */
     .profile-image-container {
