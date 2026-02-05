@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CV | Popoola Samuel</title>
+
+  <style>
+    :root {
+      /* Dark mode */
+      --bg-dark: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      --text-dark: #ffffff;
+
+      /* Light mode (your theme) */
+      --primary: #2872A1;
+      --secondary: #CBDDE9;
+      --text-light: #1a1a1a;
+
+      /* Shared */
+      --glass: rgba(255,255,255,0.15);
+      --border: rgba(255,255,255,0.25);
+      --radius: 16px;
+      --button-bg: var(--primary);
+      --button-text: #fff;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-dark);
+      min-height: 100vh;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    body.light {
+      background: linear-gradient(135deg, var(--secondary), #ffffff);
+      color: var(--text-light);
+    }
+
+    /* Push content down so toggle never overlaps */
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 90px 20px 40px;
+    }
+
+    .glass {
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    /* ---------- HEADER ---------- */
+    .header {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .name {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    .role {
+      font-size: 1.2rem;
+      opacity: 0.85;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 0.95rem;
+    }
+
+    /* ---------- TOGGLE BUTTON (GLASS) ---------- */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 18px;
+      border-radius: 25px;
+      cursor: pointer;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.35);
+      backdrop-filter: blur(10px);
+      color: inherit;
+      font-size: 0.9rem;
+      z-index: 1000;
+    }
+
+    /* ---------- PROJECTS ---------- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-card strong {
+      font-size: 1.1rem;
+    }
+
+    .project-card p {
+      margin: 10px 0 20px;
+      flex-grow: 1;
+    }
+
+    .project-card a {
+      align-self: flex-start;
+      padding: 10px 16px;
+      border-radius: 20px;
+      background: var(--button-bg);
+      color: var(--button-text);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: opacity 0.3s;
+    }
+
+    .project-card a:hover {
+      opacity: 0.85;
+    }
+
+    /* ---------- TWO COLUMN ---------- */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    @media (max-width: 800px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .availability {
+      font-weight: 500;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <section class="glass header">
+      <div class="name">Popoola Samuel Olumide<span style="opacity:.6;"></span></div>
+      <div class="role">Web Developer — Nigeria</div>
+
+      <div class="contact">
+        <span>📧 samuelpopoola323@gmail.com</span>
+        <span>📞 09122054068 (WhatsApp)</span>
+        <span>🌐 samuelpopoola.vercel.app</span>
+      </div>
+    </section>
+
+    <!-- SUMMARY -->
+    <section class="glass">
+      <h2>Professional Summary</h2>
+      <p>
+        Web developer focused on building complete online experiences with clean
+        interfaces, intuitive navigation, and solid backend logic. I turn ideas into
+        functional digital products—from educational systems and dashboards to
+        e-commerce and business platforms—prioritizing performance, security, and usability.
+      </p>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="glass">
+      <h2>Experience</h2>
+      <p><strong>Project-Based Web Development</strong> — 2024 – Present</p>
+      <ul>
+        <li>Designed and deployed full-stack web applications</li>
+        <li>Built authentication systems, dashboards, and payment integrations</li>
+        <li>Handled deployment, performance optimization, and security</li>
+      </ul>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="glass">
+      <h2>Selected Projects</h2>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <strong>TestPro (CBT System)</strong>
+          <p>
+            Remote examination platform with token-based access, timers, auto-submission,
+            grading, admin panel, and result export.
+          </p>
+          <a href="https://cbt-system-vert.vercel.app/homepage.html" target="_blank">Live Project</a>
+        </div>
+
+        <div class="project-card">
+          <strong>MyPortal (School Portal)</strong>
+          <p>
+            Academic management system for student registration, course registration,
+            results display, and multi-level admin control.
+          </p>
+          <a href="https://ict-reg.vercel.app/" target="_blank">Live Project</a>
+        </div>
+
+        <div class="project-card">
+          <strong>Tasty Bites (Restaurant)</strong>
+          <p>
+            Online meal ordering platform with payments, WhatsApp order summary,
+            and stock management admin panel.
+          </p>
+          <a href="https://restaurant-plum.vercel.app/index.html" target="_blank">Live Project</a>
+        </div>
+
+        <div class="project-card">
+          <strong>Abby Secret (Boutique)</strong>
+          <p>
+            E-commerce boutique with online payments, admin inventory control,
+            and WhatsApp notifications.
+          </p>
+          <a href="https://abby-nu.vercel.app/" target="_blank">Live Project</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS & EDUCATION -->
+    <section class="glass two-col">
+      <div>
+        <h2>Skills</h2>
+        <ul>
+          <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
+          <li><strong>Backend:</strong> Node.js, Express</li>
+          <li><strong>Database:</strong> MongoDB</li>
+          <li><strong>Tools:</strong> GitHub, Vercel, Render, Cloudinary</li>
+          <li><strong>AI:</strong> OpenAI API</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Education</h2>
+        <p>
+          <strong>National Diploma (ND)</strong><br/>
+          Computer Science — Grace Polytechnic<br/>
+          2023 – 2025
+        </p>
+
+        <p>
+          <strong>HND (In View)</strong><br/>
+          Computer Science — Grace Polytechnic<br/>
+          2025 – Present
+        </p>
+      </div>
+    </section>
+
+    <!-- AVAILABILITY -->
+    <section class="glass">
+      <h2>Availability</h2>
+      <p class="availability">
+        Open to freelance projects, part-time roles, and opportunities to build,
+        learn, and grow.
+      </p>
+    </section>
+
+  </div>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("light");
+    }
+  </script>
+</body>
+</html>
