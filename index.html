@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Popoola Samuel | Portfolio</title>
+  <style>
+    /* ---------- GOOGLE FONT ---------- */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+    /* ---------- ROOT VARIABLES ---------- */
+    :root {
+      --primary: #2872A1; /* Ocean blue */
+      --secondary: #CBDDE9; /* Cloudy sky */
+      --text-color: #1a1a1a;
+      --card-bg: rgba(255, 255, 255, 0.15);
+      --card-border: rgba(255, 255, 255, 0.25);
+      --button-bg: #2872A1;
+      --button-text: #fff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-color);
+      background: linear-gradient(to bottom, var(--secondary), var(--primary));
+      transition: background 0.5s, color 0.5s;
+      overflow-x: hidden;
+    }
+
+    body.dark {
+      background: radial-gradient(circle at center, #2a2f34 0%, #1f2428 100%);
+      color: #fff;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    
+    /* ---------- DARK/LIGHT TOGGLE BUTTON (Glassmorphism) ---------- */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 500;
+  cursor: pointer;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.15); /* semi-transparent */
+  color: var(--text-color);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+
+    /* ---------- GLASS CARD ---------- */
+    .card {
+          background: var(--card-bg);
+      border-radius: 20px;
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid var(--card-border);
+      padding: 2rem;
+      margin: 1rem 0;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 80px 20px;
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 20px 0;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    p {
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    /* ---------- BUTTON ---------- */
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: var(--button-bg);
+      color: var(--button-text);
+      border-radius: 30px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background: #1f5d81;
+    }
+
+    /* ---------- HERO ---------- */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+    }
+
+    #hero .card {
+      max-width: 700px;
+    }
+
+    /* ---------- PROFILE IMAGE ---------- */
+    .profile-image-container {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 20px auto;
+      border-radius: 50%; /* Rounded image */
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .profile-image-container:hover {
+      transform: scale(1.05);
+    }
+    .profile-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ---------- MODAL ---------- */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 80%;
+      border-radius: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .close {
+      position: absolute;
+      top: 40px;
+      right: 60px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #bbb;
+    }
+
+    /* ---------- SKILLS ---------- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+
+    .skill {
+      background: var(--card-bg);
+      border-radius: 15px;
+      padding: 15px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--card-border);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: transform 0.5s, opacity 0.5s;
+    }
+
+    .skill.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---------- PROJECTS ---------- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    /* ---------- CONTACT ---------- */
+    #contact .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media(max-width: 600px){
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Theme Toggle -->
+  <button class="theme-toggle">Toggle Dark/Light</button>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="card">
+      <!-- Profile Image -->
+      <div class="profile-image-container">
+        <img src="profile.jpg" alt="Popoola Samuel" class="profile-image">
+      </div>
+
+      <h1>Popoola Samuel (Popeson)</h1>
+      <p>I build more than just websites — I create online presences that feel like a true digital home, with clean design, smooth navigation, and a user-friendly experience.</p>
+      <p>I turn ideas into functional, real-world web solutions — from e-commerce platforms and educational systems to personal and business websites. If it’s web-based, I can build it.</p>
+      <a href="#projects" class="btn">View Projects</a>
+    </div>
+  </section>
+
+  <!-- PROFILE IMAGE MODAL -->
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+      <p>I’m Popoola Samuel (Popeson), a self-taught web developer and National Diploma graduate with hands-on experience building real-world web applications. I’m currently in school and actively freelancing, working on projects that range from educational platforms to business and e-commerce websites.</p>
+      <p>I’ve spent the last 1–2 years building functional systems such as CBT examination platforms, school portals, and online ordering websites for restaurants and boutiques, complete with secure payment integrations.</p>
+      <p>When I build, I prioritize clean user interfaces, strong security, good performance, scalability, and clarity.</p>
+      <p>I’m currently open to freelance work, part-time opportunities, and continuously improving my skills by building and learning through real projects.</p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">Node.js</div>
+      <div class="skill">Express.js</div>
+      <div class="skill">MongoDB</div>
+      <div class="skill">GitHub</div>
+      <div class="skill">Vercel</div>
+      <div class="skill">Render</div>
+      <div class="skill">OpenAI APIs</div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="card">
+        <h3>TestPro — Online CBT Examination System</h3>
+        <p>Enables remote computer-based exams with automated grading and timed assessments, reducing manual effort.</p>
+        <p><strong>Features:</strong> Student registration, Token-based access, Timer, Auto-submit, Admin panel, Result export, Exam scheduling</p>
+        <p><strong>Tech Stack:</strong> HTML, CSS, JS, MongoDB, Paystack, Cloudinary</p>
+        <p><strong>Status:</strong> Live and deployed</p>
+        <a href="https://testpro.com" target="_blank" class="btn">Visit</a>
+      </div>
+
+      <div class="card">
+        <h3>MyPortal — School Management Portal</h3>
+        <p>Centralizes and simplifies student academic management for schools.</p>
+        <p><strong>Features:</strong> Student registration, Academic files upload, Course display, Course registration, Result display, Exam slip printout, Multiple admin dashboards</p>
+        <p><strong>Tech Stack:</strong> HTML, CSS, JS, MongoDB, Cloudinary</p>
+        <p><strong>Status:</strong> Live and deployed</p>
+        <a href="https://myportal.com" target="_blank" class="btn">Visit</a>
+      </div>
+
+      <div class="card">
+        <h3>Tasty Bites — Restaurant Ordering Website</h3>
+        <p>Allows customers to browse meals, place orders, pay online, and enables admins to manage stock.</p>
+        <p><strong>Features:</strong> Meal listing, Online ordering & payment, WhatsApp order notifications, Admin panel</p>
+        <p><strong>Tech Stack:</strong> HTML, CSS, JS, MongoDB, Cloudinary</p>
+        <p><strong>Status:</strong> Live and deployed</p>
+        <a href="https://tastybites.com" target="_blank" class="btn">Visit</a>
+      </div>
+
+      <div class="card">
+        <h3>Abby Secret — Boutique E-Commerce Website</h3>
+        <p>Enables boutique to sell fashion items online with payment and inventory management.</p>
+        <p><strong>Features:</strong> Product listing, Online ordering & payment, WhatsApp order notifications, Admin panel</p>
+        <p><strong>Tech Stack:</strong> HTML, CSS, JS, MongoDB, Cloudinary</p>
+        <p><strong>Status:</strong> Live and deployed</p>
+        <a href="https://abbysecret.com" target="_blank" class="btn">Visit</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE / HIGHLIGHTS -->
+  <section id="experience">
+    <h2>Experience / Highlights</h2>
+    <div class="card">
+      <p>Successfully designed, built, and deployed multiple full-stack web applications (TestPro, MyPortal, Tasty Bites, Abby Secret).</p>
+      <p>All projects were developed independently, showing full ownership.</p>
+      <p><strong>Core Strengths:</strong></p>
+      <ul>
+        <li>Problem-solving</li>
+        <li>Backend logic</li>
+        <li>System design</li>
+        <li>UI thinking</li>
+        <li>Reliability</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <div class="card contact-info">
+      <p><strong>Email:</strong> sam@gmail.com</p>
+      <p><strong>Phone / WhatsApp:</strong> 09123876668</p>
+      <p><strong>Instagram:</strong> <a href="https://instagram.com/officialpopeson" target="_blank">@officialpopeson</a></p>
+      <p><strong>Portfolio:</strong> <a href="https://portfolio.com" target="_blank">portfolio.com</a></p>
+      <p><strong>Availability:</strong> Open to freelance, part-time, and new opportunities in web development</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Popoola Samuel (Popeson). All rights reserved.</p>
+  </footer>
+
+  <!-- ---------- JAVASCRIPT ---------- -->
+  <script>
+    // Theme toggle
+    const toggle = document.querySelector('.theme-toggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+
+    // Intersection Observer for cards
+    const observerOptions = { threshold: 0.2 };
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    const cards = document.querySelectorAll('.card, .skill');
+    cards.forEach(card => observer.observe(card));
+
+    // Profile Image Modal
+    const modal = document.getElementById('imageModal');
+    const img = document.querySelector('.profile-image');
+    const modalImg = document.getElementById('modalImage');
+    const closeModal = document.querySelector('.close');
+
+    img.addEventListener('click', () => {
+      modal.style.display = 'block';
+      modalImg.src = img.src;
+    });
+
+    closeModal.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    // Close modal if clicked outside the image
+    modal.addEventListener('click', (e) => {
+      if(e.target === modal){
+        modal.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
