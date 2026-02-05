@@ -147,6 +147,27 @@
       max-width: 700px;
     }
 
+   /* ---------- HERO BUTTON GROUP ---------- */
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+/* Outline-style secondary button */
+.btn-outline {
+  background: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(8px);
+}
+
+.btn-outline:hover {
+  background: rgba(255,255,255,0.2);
+}
+
     /* ---------- PROFILE IMAGE ---------- */
     .profile-image-container {
       width: 150px;
@@ -258,19 +279,29 @@
   <button class="theme-toggle">Toggle Dark/Light</button>
 
   <!-- HERO -->
-  <section id="hero">
-    <div class="card">
-      <!-- Profile Image -->
-      <div class="profile-image-container">
-        <img src="sam.jpg" alt="Popoola Samuel" class="profile-image">
-      </div>
-
-      <h1>Popoola Samuel (Popeson)</h1>
-      <p>I build more than just websites — I create online presences that feel like a true digital home, with clean design, smooth navigation, and a user-friendly experience.</p>
-      <p>I turn ideas into functional, real-world web solutions — from e-commerce platforms and educational systems to personal and business websites. If it’s web-based, I can build it.</p>
-      <a href="#projects" class="btn">View Projects</a>
+<section id="hero">
+  <div class="card">
+    <!-- Profile Image -->
+    <div class="profile-image-container">
+      <img src="sam.jpg" alt="Popoola Samuel" class="profile-image">
     </div>
-  </section>
+
+    <h1>Popoola Samuel (Popeson)</h1>
+    <p>
+      I build more than just websites — I create online presences that feel like a true
+      digital home, with clean design, smooth navigation, and a user-friendly experience.
+    </p>
+    <p>
+      I turn ideas into functional, real-world web solutions — from e-commerce platforms
+      and educational systems to personal and business websites. If it’s web-based, I can build it.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#projects" class="btn">View Projects</a>
+      <a href="cv.html" class="btn btn-outline">View Résumé</a>
+    </div>
+  </div>
+</section>
 
   <!-- PROFILE IMAGE MODAL -->
   <div id="imageModal" class="modal">
