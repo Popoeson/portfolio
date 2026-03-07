@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Popoola Samuel | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* GLOBAL */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#0a0a0a;
+color:white;
+overflow-x:hidden;
+}
+
+/* HERO SECTION */
+
+#hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:0 20px;
+position:relative;
+overflow:hidden;
+}
+
+/* glow background */
+
+#hero::before{
+content:"";
+position:absolute;
+width:700px;
+height:700px;
+background:radial-gradient(circle, rgba(245,158,11,0.35), transparent 70%);
+filter:blur(140px);
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+z-index:0;
+}
+
+/* hero content */
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:800px;
+}
+
+/* availability badge */
+
+.availability{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:6px 14px;
+border-radius:20px;
+font-size:13px;
+background:#111;
+border:1px solid #2a2a2a;
+margin-bottom:25px;
+letter-spacing:1px;
+}
+
+.dot{
+width:8px;
+height:8px;
+background:#22c55e;
+border-radius:50%;
+}
+
+/* hero text */
+
+#hero h1{
+font-size:38px;
+margin-bottom:10px;
+}
+
+.hero-name{
+font-size:68px;
+font-weight:700;
+color:#f59e0b;
+}
+
+/* role */
+
+.hero-role{
+font-size:20px;
+font-weight:500;
+margin-bottom:20px;
+color:#ddd;
+}
+
+/* description */
+
+.hero-description{
+max-width:620px;
+margin:auto;
+line-height:1.6;
+color:#aaa;
+margin-bottom:35px;
+}
+
+/* buttons */
+
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.hero-btn{
+padding:12px 28px;
+border-radius:30px;
+text-decoration:none;
+font-weight:500;
+transition:.3s;
+}
+
+.hero-btn.primary{
+background:#f59e0b;
+color:black;
+}
+
+.hero-btn.primary:hover{
+transform:translateY(-3px);
+}
+
+.hero-btn.secondary{
+border:1px solid #444;
+color:white;
+}
+
+.hero-btn.secondary:hover{
+background:#111;
+}
+
+/* scroll indicator */
+
+.scroll-indicator{
+position:absolute;
+bottom:30px;
+font-size:12px;
+letter-spacing:2px;
+color:#aaa;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero-name{
+font-size:44px;
+}
+
+#hero h1{
+font-size:28px;
+}
+
+.hero-role{
+font-size:16px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<section id="hero">
+
+<div class="hero-content">
+
+<div class="availability">
+<span class="dot"></span> AVAILABLE FOR WORK
+</div>
+
+<h1>
+Hi, I'm <br>
+<span class="hero-name">Popoola Samuel</span>
+</h1>
+
+<div class="hero-role">
+Full Stack Developer | Building Real-World Systems
+</div>
+
+<p class="hero-description">
+I build scalable web applications and digital platforms — from educational systems and business portals
+to full e-commerce platforms. My focus is clean interfaces, strong backend logic,
+and real-world usability.
+</p>
+
+<div class="hero-buttons">
+<a href="#" class="hero-btn primary">View My Work</a>
+<a href="#" class="hero-btn secondary">Contact Me</a>
+</div>
+
+</div>
+
+<div class="scroll-indicator">
+SCROLL ↓
+</div>
+
+</section>
+
+</body>
+</html>
