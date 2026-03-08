@@ -661,6 +661,9 @@ font-size:14px;
   border-radius: 20px;
   text-decoration: none;
   transition: 0.3s ease;
+
+  /* FORCE CONSISTENT COLOR FOR ALL LINK STATES */
+  color: inherit;
 }
 
 .project-links a.code-btn {
@@ -669,7 +672,8 @@ font-size:14px;
   border: 1px solid #555;
 }
 
-.project-links a.code-btn:hover {
+.project-links a.code-btn:hover,
+.project-links a.code-btn:visited {
   border-color: #ff9500;
   color: #ff9500;
 }
@@ -679,8 +683,10 @@ font-size:14px;
   color: #000;
 }
 
-.project-links a.demo-btn:hover {
+.project-links a.demo-btn:hover,
+.project-links a.demo-btn:visited {
   background: #e38c00;
+  color: #000;
 }
 
 /* REVEAL ANIMATION */
