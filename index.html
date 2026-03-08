@@ -412,16 +412,16 @@ margin-bottom:60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  pointer-events: none; /* prevent blocking clicks on the page */
+  pointer-events: none;
   opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 999;
+  transition: opacity 0.35s ease;
+  z-index: 2000; /* above header */
 }
 
 /* modal active */
 .image-modal.show {
   opacity: 1;
-  pointer-events: auto; /* enable interactions only when active */
+  pointer-events: auto;
 }
 
 /* blurred background */
@@ -430,10 +430,10 @@ margin-bottom:60px;
   position: fixed;
   inset: 0;
   backdrop-filter: blur(8px);
-  background: rgba(0,0,0,0.3);
-  z-index: 998;
+  background: rgba(0,0,0,0.25);
+  z-index: 1999;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.35s ease;
 }
 
 .body-blur.active::before {
@@ -447,12 +447,14 @@ margin-bottom:60px;
   border-radius: 10px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.5);
   transform: scale(0.8);
-  transition: transform 0.35s ease;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  opacity: 0;
 }
 
-/* zoom in */
+/* zoom in and fade */
 .image-modal.show .modal-image {
   transform: scale(1);
+  opacity: 1;
 }
 
 /* close button */
@@ -464,6 +466,7 @@ margin-bottom:60px;
   color: white;
   cursor: pointer;
   font-weight: 300;
+  z-index: 2001; /* above modal image */
 }
 
 /* content */
