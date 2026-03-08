@@ -734,62 +734,63 @@ font-size:14px;
 }
 
 /* EXPERIENCE SECTION */
-
 .experience-section {
   padding: 120px 10%;
-  background: #080808;
-  color: #fff;
+  background: #0a0a0a;
+  color: #e5e5e5;
   position: relative;
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
-.experience-section h2 {
-  font-size: 36px;
-  font-weight: 700;
+/* Section Header */
+.section-header h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #fff;
   margin-bottom: 8px;
 }
 
-.experience-section .section-underline {
-  width: 80px;
+.section-underline {
+  width: 100px;
   height: 4px;
-  background: #ff9500;
-  margin-bottom: 16px;
+  background: #f59e0b;
   border-radius: 2px;
+  margin-bottom: 16px;
 }
 
-.experience-section p.section-intro {
-  color: #aaa;
-  margin-bottom: 60px;
-  font-size: 16px;
-  max-width: 600px;
+.section-intro {
+  color: #d1d5db;
+  font-size: 1.125rem;
   line-height: 1.6;
+  max-width: 650px;
+  margin-bottom: 60px;
 }
 
 /* TIMELINE CONTAINER */
-
 .timeline {
   position: relative;
-  margin-left: 20px;
+  margin-left: 50px;
   padding-left: 20px;
 }
 
 .timeline::before {
   content: '';
   position: absolute;
-  left: 20px;
+  left: 0;
   top: 0;
-  width: 4px;
+  width: 3px;
   height: 100%;
-  background: #ff9500;
+  background: #f59e0b;
   border-radius: 2px;
 }
 
 /* TIMELINE ITEM */
-
 .timeline-item {
   position: relative;
-  margin-bottom: 60px;
+  margin-bottom: 100px;
   padding-left: 60px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
 }
 
 .timeline-item:hover {
@@ -798,149 +799,172 @@ font-size:14px;
 
 .timeline-dot {
   position: absolute;
-  left: 12px;
+  left: -6px;
   top: 0;
   width: 16px;
   height: 16px;
-  background: #ff9500;
+  background: #f59e0b;
   border-radius: 50%;
-  box-shadow: 0 0 5px rgba(255, 149, 0, 0.4);
-  transition: box-shadow 0.3s ease;
+  box-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .timeline-item:hover .timeline-dot {
-  box-shadow: 0 0 15px rgba(255, 149, 0, 0.7);
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.8);
+  transform: scale(1.2);
 }
 
-/* CONTENT BLOCK */
-
+/* TIMELINE CONTENT */
 .timeline-content {
-  background: #080808;
-  padding: 16px 20px;
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background: #111111;
+  padding: 20px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   transition: all 0.3s ease;
 }
 
 .timeline-item:hover .timeline-content {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  border-radius: 8px;
-  background: #111;
+  background: #1a1a1a;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
 }
 
 /* DATE BADGE */
-
 .timeline-date {
   position: absolute;
-  top: 0;
-  left: 50px;
-  font-size: 12px;
-  font-weight: 600;
-  color: #ff9500;
+  top: -5px;
+  left: calc(100% + 10px);
   background: #111;
-  padding: 4px 10px;
-  border-radius: 12px;
+  color: #f59e0b;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 4px 14px;
+  border-radius: 999px;
   white-space: nowrap;
 }
 
 /* JOB TITLE */
-
 .timeline-content h3 {
-  font-size: 20px;
+  font-size: 1.75rem;
   font-weight: 700;
+  color: #fff;
   margin-bottom: 6px;
 }
 
 /* COMPANY NAME */
-
 .timeline-content span.company {
   display: block;
-  font-size: 14px;
+  font-size: 1.125rem;
   font-weight: 500;
-  color: #aaa;
-  margin-bottom: 8px;
-}
-
-/* BULLET POINTS */
-
-.timeline-content ul {
-  padding-left: 18px;
-  list-style-type: disc;
-  color: #ccc;
-  line-height: 1.6;
-  font-size: 14px;
-}
-
-/* CTA SECTION */
-
-.timeline-cta {
-  text-align: center;
-  margin-top: 80px;
-}
-
-.timeline-cta h3 {
-  font-size: 28px;
-  font-weight: 700;
+  color: #d1d5db;
   margin-bottom: 12px;
 }
 
-.timeline-cta p {
-  color: #aaa;
-  margin-bottom: 20px;
-  font-size: 16px;
+/* BULLET POINTS */
+.timeline-content ul.core-strengths {
+  padding-left: 20px;
+  list-style-type: disc;
+  color: #d1d5db;
+  line-height: 1.7;
+  font-size: 1rem;
 }
 
-.timeline-cta a {
+.timeline-content ul.core-strengths li {
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.timeline-content ul.core-strengths li:hover {
+  color: #f59e0b;
+}
+
+/* CTA SECTION */
+.experience-cta {
+  text-align: center;
+  margin-top: 120px;
+}
+
+.experience-cta h3 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.experience-cta p {
+  font-size: 1.25rem;
+  color: #d1d5db;
+  margin-bottom: 32px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.experience-cta .cta-btn {
   display: inline-block;
-  padding: 12px 28px;
-  background: #ff9500;
-  color: #000;
-  border-radius: 30px;
+  padding: 16px 40px;
+  background: #f59e0b;
+  color: #111;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1.125rem;
   text-decoration: none;
-  font-weight: 600;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
-.timeline-cta a:hover {
-  background: #e38c00;
+.experience-cta .cta-btn:hover {
+  background: #ffb347;
+  transform: scale(1.05);
 }
 
 /* MOBILE RESPONSIVE */
-
 @media(max-width: 768px) {
   .timeline {
-    margin-left: 0;
-    padding-left: 0;
+    margin-left: 20px;
+    padding-left: 20px;
   }
 
   .timeline::before {
     left: 10px;
   }
 
-  .timeline-item {
-    padding-left: 40px;
+  .timeline-dot {
+    left: 0;
+    top: 0;
   }
 
-  .timeline-dot {
-    left: 2px;
+  .timeline-item {
+    padding-left: 40px;
+    margin-bottom: 80px;
   }
 
   .timeline-date {
-    left: 32px;
-    font-size: 11px;
+    top: -5px;
+    left: 50px;
+    font-size: 0.75rem;
   }
 
   .timeline-content h3 {
-    font-size: 18px;
+    font-size: 1.5rem;
   }
 
   .timeline-content span.company {
-    font-size: 13px;
+    font-size: 1rem;
   }
 
-  .timeline-content ul {
-    font-size: 13px;
+  .timeline-content ul.core-strengths {
+    font-size: 0.9rem;
   }
+}
+
+/* REVEAL ANIMATION */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 </style>
@@ -1271,9 +1295,12 @@ When I'm not coding, I'm usually exploring new technologies, learning advanced b
 
 <!-- EXPERIENCE SECTION -->
 <section class="experience-section" id="experience">
-  <div class="section-header">
+  <div class="section-header reveal">
     <h2>Experience</h2>
-    <p>Key projects and my hands-on experience in full-stack development.</p>
+    <div class="section-underline"></div>
+    <p class="section-intro">
+      My professional journey and the companies I've had the pleasure to work with.
+    </p>
   </div>
 
   <div class="timeline">
@@ -1283,6 +1310,7 @@ When I'm not coding, I'm usually exploring new technologies, learning advanced b
       <div class="timeline-content">
         <span class="timeline-date">2023 – Present</span>
         <h3>Full-Stack Web Applications</h3>
+        <span class="company">Independent Projects</span>
         <p>Successfully designed, built, and deployed multiple full-stack web applications including TestPro, MyPortal, Tasty Bites, Abby Secret. All projects were developed independently, showing full ownership.</p>
         <ul class="core-strengths">
           <li>Problem-solving</li>
@@ -1299,6 +1327,7 @@ When I'm not coding, I'm usually exploring new technologies, learning advanced b
       <div class="timeline-content">
         <span class="timeline-date">2022 – 2023</span>
         <h3>Independent Development Experience</h3>
+        <span class="company">Personal Projects</span>
         <p>Built smaller apps & portfolio projects to learn full-stack workflows, explored deployment strategies (Render, Vercel), and used GitHub for version control.</p>
         <ul class="core-strengths">
           <li>Project ownership</li>
@@ -1314,6 +1343,7 @@ When I'm not coding, I'm usually exploring new technologies, learning advanced b
       <div class="timeline-content">
         <span class="timeline-date">2021 – 2022</span>
         <h3>Early Learning Projects / Freelance Work</h3>
+        <span class="company">Freelance</span>
         <p>Designed and launched simple web apps for small businesses, focused on responsive layouts, interactive UI, and clean code practices.</p>
         <ul class="core-strengths">
           <li>Client communication & project management</li>
@@ -1324,6 +1354,7 @@ When I'm not coding, I'm usually exploring new technologies, learning advanced b
     </div>
   </div>
 
+  <!-- CTA Section -->
   <div class="experience-cta reveal">
     <h3>Let's Work Together</h3>
     <p>I'm currently looking for new opportunities. Let's build something amazing together!</p>
