@@ -985,10 +985,50 @@ font-size:14px;
   transform: translateY(0);
 }
 
+/* FOOTER */
+
+.site-footer{
+  background:#080808;
+  border-top:1px solid #1f1f1f;
+  padding:40px 10%;
+  text-align:center;
+}
+
+.footer-content p{
+  color:#888;
+  font-size:14px;
+  margin-bottom:16px;
+  letter-spacing:0.5px;
+}
+
+.footer-content span{
+  color:#ff9500;
+  font-weight:600;
+}
+
+/* BACK TO TOP BUTTON */
+
+.back-to-top{
+  display:inline-block;
+  text-decoration:none;
+  font-size:14px;
+  color:#ff9500;
+  border:1px solid #ff9500;
+  padding:8px 18px;
+  border-radius:30px;
+  transition:all 0.3s ease;
+}
+
+.back-to-top:hover{
+  background:#ff9500;
+  color:#000;
+  transform:translateY(-2px);
+}
+
 </style>
 </head>
 
-<body>
+<body I'd="top" >
 
 <header>
 
@@ -1406,6 +1446,18 @@ When I'm not coding, I'm usually exploring new technologies, learning advanced b
   </div>
 </section>
 
+<footer class="site-footer">
+  <div class="footer-content">
+
+    <p>© 2026 Popoola Samuel. Built with <span>TechWise Technology</span>.</p>
+
+    <a href="#top" class="back-to-top">
+      ↑ Back to Top
+    </a>
+
+  </div>
+</footer>
+
 <script>
 function toggleMenu(){
     document.getElementById("mobileMenu").classList.toggle("show");
@@ -1426,6 +1478,10 @@ const observer = new IntersectionObserver(entries => {
 reveals.forEach(el => {
     observer.observe(el);
 });
+
+html{
+scroll-behavior:smooth;
+}
 </script>
 
 </body>
