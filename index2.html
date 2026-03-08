@@ -110,7 +110,9 @@ display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-padding:0 20px;
+
+padding:120px 20px 60px;
+
 position:relative;
 overflow:hidden;
 }
@@ -187,12 +189,14 @@ font-weight:700;
 color:#f59e0b;
 }
 
-/* ---------- TITLE ANIMATION ---------- */
+/* TITLE ANIMATION */
 
 .title-container{
-height: 50px;
+height:60px;
 overflow:hidden;
-margin-bottom:25px;
+margin-bottom:30px;
+display:flex;
+justify-content:center;
 }
 
 .titles{
@@ -202,7 +206,10 @@ animation:slideTitles 15s infinite;
 }
 
 .titles span{
-height: 40px;
+
+height:60px;
+line-height:60px;
+
 display:flex;
 align-items:center;
 justify-content:center;
@@ -213,29 +220,31 @@ font-weight:500;
 color:#e5e5e5;
 opacity:0.9;
 
-transition:opacity .4s ease;
+white-space:nowrap;
+letter-spacing:0.5px;
+
 }
 
-/* smooth slide with fade */
+/* animation */
 
 @keyframes slideTitles{
 
 0%{transform:translateY(0)}
 16%{transform:translateY(0)}
 
-20%{transform:translateY(-40px)}
-36%{transform:translateY(-40px)}
+20%{transform:translateY(-60px)}
+36%{transform:translateY(-60px)}
 
-40%{transform:translateY(-80px)}
-56%{transform:translateY(-80px)}
+40%{transform:translateY(-120px)}
+56%{transform:translateY(-120px)}
 
-60%{transform:translateY(-120px)}
-76%{transform:translateY(-120px)}
+60%{transform:translateY(-180px)}
+76%{transform:translateY(-180px)}
 
-80%{transform:translateY(-160px)}
-96%{transform:translateY(-160px)}
+80%{transform:translateY(-240px)}
+96%{transform:translateY(-240px)}
 
-100%{transform:translateY(-200px)}
+100%{transform:translateY(-300px)}
 
 }
 
@@ -314,12 +323,22 @@ display:block;
 display:flex;
 }
 
+#hero{
+padding-top:140px;
+}
+
 .hero-name{
 font-size:42px;
 }
 
+.title-container{
+height:50px;
+}
+
 .titles span{
 font-size:22px;
+height:50px;
+line-height:50px;
 }
 
 }
@@ -376,7 +395,6 @@ Hi, I'm <br>
 <span>API & Database Engineer</span>
 <span>Building Real-World Systems</span>
 
-<!-- duplicate first item for seamless loop -->
 <span>Full Stack Developer</span>
 
 </div>
