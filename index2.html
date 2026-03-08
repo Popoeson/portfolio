@@ -733,6 +733,216 @@ font-size:14px;
   }
 }
 
+/* EXPERIENCE SECTION */
+
+.experience-section {
+  padding: 120px 10%;
+  background: #080808;
+  color: #fff;
+  position: relative;
+}
+
+.experience-section h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.experience-section .section-underline {
+  width: 80px;
+  height: 4px;
+  background: #ff9500;
+  margin-bottom: 16px;
+  border-radius: 2px;
+}
+
+.experience-section p.section-intro {
+  color: #aaa;
+  margin-bottom: 60px;
+  font-size: 16px;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+/* TIMELINE CONTAINER */
+
+.timeline {
+  position: relative;
+  margin-left: 20px;
+  padding-left: 20px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: #ff9500;
+  border-radius: 2px;
+}
+
+/* TIMELINE ITEM */
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 60px;
+  padding-left: 60px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:hover {
+  transform: translateY(-5px);
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 12px;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  background: #ff9500;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(255, 149, 0, 0.4);
+  transition: box-shadow 0.3s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+  box-shadow: 0 0 15px rgba(255, 149, 0, 0.7);
+}
+
+/* CONTENT BLOCK */
+
+.timeline-content {
+  background: #080808;
+  padding: 16px 20px;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-content {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  background: #111;
+}
+
+/* DATE BADGE */
+
+.timeline-date {
+  position: absolute;
+  top: 0;
+  left: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ff9500;
+  background: #111;
+  padding: 4px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+/* JOB TITLE */
+
+.timeline-content h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+/* COMPANY NAME */
+
+.timeline-content span.company {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #aaa;
+  margin-bottom: 8px;
+}
+
+/* BULLET POINTS */
+
+.timeline-content ul {
+  padding-left: 18px;
+  list-style-type: disc;
+  color: #ccc;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* CTA SECTION */
+
+.timeline-cta {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.timeline-cta h3 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.timeline-cta p {
+  color: #aaa;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.timeline-cta a {
+  display: inline-block;
+  padding: 12px 28px;
+  background: #ff9500;
+  color: #000;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.timeline-cta a:hover {
+  background: #e38c00;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width: 768px) {
+  .timeline {
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .timeline::before {
+    left: 10px;
+  }
+
+  .timeline-item {
+    padding-left: 40px;
+  }
+
+  .timeline-dot {
+    left: 2px;
+  }
+
+  .timeline-date {
+    left: 32px;
+    font-size: 11px;
+  }
+
+  .timeline-content h3 {
+    font-size: 18px;
+  }
+
+  .timeline-content span.company {
+    font-size: 13px;
+  }
+
+  .timeline-content ul {
+    font-size: 13px;
+  }
+}
+
 </style>
 </head>
 
@@ -1057,6 +1267,68 @@ When I'm not coding, I'm usually exploring new technologies, learning advanced b
 
   </div>
 
+</section>
+
+<!-- EXPERIENCE SECTION -->
+<section class="experience-section" id="experience">
+  <div class="section-header">
+    <h2>Experience</h2>
+    <p>Key projects and my hands-on experience in full-stack development.</p>
+  </div>
+
+  <div class="timeline">
+    <!-- Timeline Item 1 -->
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <span class="timeline-date">2023 – Present</span>
+        <h3>Full-Stack Web Applications</h3>
+        <p>Successfully designed, built, and deployed multiple full-stack web applications including TestPro, MyPortal, Tasty Bites, Abby Secret. All projects were developed independently, showing full ownership.</p>
+        <ul class="core-strengths">
+          <li>Problem-solving</li>
+          <li>Backend logic & system design</li>
+          <li>UI/UX thinking</li>
+          <li>Reliability & scalability</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Timeline Item 2 -->
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <span class="timeline-date">2022 – 2023</span>
+        <h3>Independent Development Experience</h3>
+        <p>Built smaller apps & portfolio projects to learn full-stack workflows, explored deployment strategies (Render, Vercel), and used GitHub for version control.</p>
+        <ul class="core-strengths">
+          <li>Project ownership</li>
+          <li>Reusable components & automation</li>
+          <li>Deployment & CI/CD basics</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Timeline Item 3 -->
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <span class="timeline-date">2021 – 2022</span>
+        <h3>Early Learning Projects / Freelance Work</h3>
+        <p>Designed and launched simple web apps for small businesses, focused on responsive layouts, interactive UI, and clean code practices.</p>
+        <ul class="core-strengths">
+          <li>Client communication & project management</li>
+          <li>Responsive web design</li>
+          <li>HTML, CSS, JavaScript fundamentals</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="experience-cta reveal">
+    <h3>Let's Work Together</h3>
+    <p>I'm currently looking for new opportunities. Let's build something amazing together!</p>
+    <a href="mailto:your-email@example.com" class="cta-btn">Say Hello ✉️</a>
+  </div>
 </section>
 
 <script>
