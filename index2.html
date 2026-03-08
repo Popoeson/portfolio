@@ -457,6 +457,165 @@ opacity:1;
 transform:translateY(0);
 }
 
+/* SECTION HEADERS */
+
+.section-header{
+text-align:center;
+margin-bottom:60px;
+}
+
+.section-header h2{
+font-size:40px;
+margin-bottom:10px;
+}
+
+.section-header p{
+color:#aaa;
+}
+
+.underline{
+width:80px;
+height:4px;
+background:#ff9500;
+margin:10px auto 20px;
+}
+
+
+
+/* TECH STACK */
+
+.tech-section{
+padding:120px 10%;
+background:#0b0b0b;
+}
+
+.tech-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.tech-card{
+background:#111;
+padding:30px;
+border-radius:10px;
+border:1px solid #222;
+transition:0.3s;
+}
+
+.tech-card:hover{
+transform:translateY(-6px);
+border-color:#ff9500;
+}
+
+.tech-card h3{
+margin-bottom:20px;
+color:#ff9500;
+}
+
+.tech-badges{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+}
+
+.tech-badges span{
+background:#1a1a1a;
+padding:6px 12px;
+border-radius:20px;
+font-size:14px;
+}
+
+
+
+/* PROJECTS */
+
+.projects-section{
+padding:120px 10%;
+background:#080808;
+}
+
+.projects-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:40px;
+}
+
+.project-card{
+background:#111;
+border-radius:10px;
+padding:20px;
+border:1px solid #222;
+transition:0.3s;
+}
+
+.project-card:hover{
+transform:translateY(-8px);
+border-color:#ff9500;
+}
+
+.project-preview{
+height:180px;
+background:#1a1a1a;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#555;
+margin-bottom:20px;
+border-radius:6px;
+}
+
+.project-card h3{
+margin-bottom:10px;
+}
+
+.project-card p{
+color:#aaa;
+font-size:14px;
+margin-bottom:20px;
+}
+
+.project-tags{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin-bottom:20px;
+}
+
+.project-tags span{
+background:#ff9500;
+color:#000;
+padding:5px 10px;
+border-radius:20px;
+font-size:12px;
+font-weight:600;
+}
+
+.project-links{
+display:flex;
+gap:20px;
+}
+
+.project-links a{
+color:#fff;
+text-decoration:none;
+font-weight:600;
+}
+
+.project-links a:hover{
+color:#ff9500;
+}
+
+.reveal{
+opacity:0;
+transform:translateY(60px);
+transition:all 1s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
 </style>
 </head>
 
@@ -597,6 +756,192 @@ When I'm not coding, I'm usually exploring new technologies, learning advanced b
 
 </section>
 
+<!-- TECH STACK SECTION -->
+
+<section id="tech" class="tech-section reveal">
+
+  <div class="section-header">
+    <h2>Tech Stack</h2>
+    <div class="underline"></div>
+    <p>The tools and technologies I use to build real-world systems.</p>
+  </div>
+
+  <div class="tech-grid">
+
+    <!-- Frontend -->
+    <div class="tech-card">
+      <h3>&lt; / &gt; Frontend</h3>
+
+      <div class="tech-badges">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+      </div>
+    </div>
+
+    <!-- Backend -->
+    <div class="tech-card">
+      <h3>&gt;_ Backend</h3>
+
+      <div class="tech-badges">
+        <span>Node.js</span>
+        <span>Express.js</span>
+        <span>MongoDB</span>
+      </div>
+    </div>
+
+    <!-- Tools -->
+    <div class="tech-card">
+      <h3>🔧 Tools & Platforms</h3>
+
+      <div class="tech-badges">
+        <span>GitHub</span>
+        <span>Vercel</span>
+        <span>Render</span>
+        <span>OpenAI APIs</span>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- FEATURED PROJECTS SECTION -->
+
+<section id="projects" class="projects-section reveal">
+
+  <div class="section-header">
+    <h2>Featured Projects</h2>
+    <div class="underline"></div>
+    <p>A selection of my real-world applications and systems.</p>
+  </div>
+
+  <div class="projects-grid">
+
+    <!-- Project 1 -->
+
+    <div class="project-card">
+
+      <div class="project-preview">
+        PROJECT PREVIEW
+      </div>
+
+      <h3>E-Commerce Dashboard</h3>
+
+      <p>
+        Admin dashboard for managing products, orders and analytics.
+        Built with a full backend API and database integration.
+      </p>
+
+      <div class="project-tags">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>Node.js</span>
+        <span>MongoDB</span>
+      </div>
+
+      <div class="project-links">
+        <a href="#">Code</a>
+        <a href="#">Live Demo ↗</a>
+      </div>
+
+    </div>
+
+
+    <!-- Project 2 -->
+
+    <div class="project-card">
+
+      <div class="project-preview">
+        PROJECT PREVIEW
+      </div>
+
+      <h3>AI Content Generator</h3>
+
+      <p>
+        Web application that generates blog posts and marketing copy
+        using OpenAI APIs with backend processing.
+      </p>
+
+      <div class="project-tags">
+        <span>JavaScript</span>
+        <span>Node.js</span>
+        <span>Express</span>
+        <span>OpenAI API</span>
+      </div>
+
+      <div class="project-links">
+        <a href="#">Code</a>
+        <a href="#">Live Demo ↗</a>
+      </div>
+
+    </div>
+
+
+    <!-- Project 3 -->
+
+    <div class="project-card">
+
+      <div class="project-preview">
+        PROJECT PREVIEW
+      </div>
+
+      <h3>Authentication System</h3>
+
+      <p>
+        Secure login system with session management,
+        database storage and protected routes.
+      </p>
+
+      <div class="project-tags">
+        <span>Node.js</span>
+        <span>Express</span>
+        <span>MongoDB</span>
+      </div>
+
+      <div class="project-links">
+        <a href="#">Code</a>
+        <a href="#">Live Demo ↗</a>
+      </div>
+
+    </div>
+
+
+    <!-- Project 4 -->
+
+    <div class="project-card">
+
+      <div class="project-preview">
+        PROJECT PREVIEW
+      </div>
+
+      <h3>Developer Portfolio</h3>
+
+      <p>
+        Personal portfolio showcasing full stack skills,
+        animations and responsive design.
+      </p>
+
+      <div class="project-tags">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+      </div>
+
+      <div class="project-links">
+        <a href="#">Code</a>
+        <a href="#">Live Demo ↗</a>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
 <script>
 
 function toggleMenu(){
@@ -621,6 +966,24 @@ entry.target.classList.add("active");
 
 reveals.forEach(el=>{
 observer.observe(el);
+});
+
+// TECH STACK AND FEATURED PROJECTS 
+
+const reveals = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+entry.target.classList.add("active");
+}
+
+});
+});
+
+reveals.forEach(section => {
+observer.observe(section);
 });
 
 </script>
