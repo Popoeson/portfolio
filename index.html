@@ -1509,51 +1509,71 @@ SCROLL ↓
 </footer>
 
 <script>
+<script>
+
+function toggleMenu(){
+  const menu = document.getElementById("mobileMenu");
+  if(menu){
+    menu.classList.toggle("show");
+  }
+}
+
 const photo = document.getElementById("photoTrigger");
 const modal = document.getElementById("imageModal");
 const modalImg = document.getElementById("modalImage");
 const closeBtn = document.querySelector(".close-modal");
 const body = document.body;
 
-function toggleMenu(){  
-    document.getElementById("mobileMenu").classList.toggle("show");  
-}  
-  
-
 // Open modal
-photo.addEventListener("click", () => {
-  const img = photo.querySelector("img");
-  modalImg.src = img.src;
-  modal.classList.add("show");
-  body.classList.add("active"); // blur background
-});
+if(photo && modal && modalImg){
+  photo.addEventListener("click", () => {
+    const img = photo.querySelector("img");
+    modalImg.src = img.src;
+    modal.classList.add("show");
+    body.classList.add("active");
+  });
+}
 
 // Close modal
-closeBtn.addEventListener("click", () => {
-  modal.classList.remove("show");
-  body.classList.remove("active");
-});
+if(closeBtn){
+  closeBtn.addEventListener("click", () => {
+    modal.classList.remove("show");
+    body.classList.remove("active");
+  });
+}
 
-// Click outside image closes modal
-modal.addEventListener("click", (e) => {
-  if(e.target === modal){
+// Click outside closes modal
+if(modal){
+  modal.addEventListener("click", (e) => {
+    if(e.target === modal){
+      modal.classList.remove("show");
+      body.classList.remove("active");
+    }
+  });
+}
+
+// Escape Button to Close Modal
+document.addEventListener("keydown", (e) => {
+  if(e.key === "Escape" && modal){
     modal.classList.remove("show");
     body.classList.remove("active");
   }
 });
 
-// IntersectionObserver for reveal animations
+// Reveal animations
 const reveals = document.querySelectorAll(".reveal");
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add("active");
-    }
-  });
-}, { threshold: 0.2 });
 
-reveals.forEach(el => observer.observe(el));
+if(reveals.length){
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add("active");
+      }
+    });
+  }, { threshold: 0.2 });
 
+  reveals.forEach(el => observer.observe(el));
+}
 </script>
 
 </body>
