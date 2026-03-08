@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Resume — Popoola Samuel</title>
+
+<style>
+
+/* GLOBAL */
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#0b0b0b;
+color:white;
+line-height:1.7;
+}
+
+/* CONTAINER */
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:100px 20px;
+}
+
+/* HEADERS */
+
+.section-header{
+text-align:center;
+margin-bottom:60px;
+}
+
+.section-header h2{
+font-size:38px;
+margin-bottom:10px;
+}
+
+.section-header p{
+color:#aaa;
+}
+
+.underline{
+width:80px;
+height:4px;
+background:#f59e0b;
+margin:10px auto 20px;
+}
+
+/* HERO */
+
+.resume-hero{
+text-align:center;
+padding-top:120px;
+padding-bottom:60px;
+}
+
+.resume-hero h1{
+font-size:42px;
+margin-bottom:8px;
+}
+
+.resume-hero p{
+color:#aaa;
+margin-bottom:25px;
+}
+
+.contact-links{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:20px;
+}
+
+.contact-links a{
+color:#f59e0b;
+text-decoration:none;
+font-size:14px;
+}
+
+/* BUTTON */
+
+.btn{
+display:inline-block;
+margin-top:25px;
+padding:12px 24px;
+border-radius:6px;
+background:#f59e0b;
+color:black;
+font-weight:600;
+text-decoration:none;
+}
+
+/* CARD */
+
+.card{
+background:#111;
+border:1px solid #2a2a2a;
+border-radius:12px;
+padding:30px;
+}
+
+/* SUMMARY */
+
+.summary{
+max-width:750px;
+margin:auto;
+text-align:center;
+color:#aaa;
+}
+
+/* EXPERIENCE */
+
+.experience-card h3{
+margin-bottom:8px;
+}
+
+.experience-card span{
+color:#f59e0b;
+font-size:14px;
+}
+
+.experience-card ul{
+margin-top:15px;
+color:#aaa;
+}
+
+/* PROJECTS */
+
+.projects-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.project-card{
+background:#111;
+border:1px solid #2a2a2a;
+border-radius:12px;
+padding:25px;
+}
+
+.project-card h4{
+margin-bottom:10px;
+}
+
+.project-card p{
+color:#aaa;
+font-size:14px;
+}
+
+.project-card a{
+display:inline-block;
+margin-top:10px;
+color:#f59e0b;
+text-decoration:none;
+font-size:14px;
+}
+
+/* SKILLS */
+
+.skills-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+}
+
+.skill-card{
+background:#111;
+border:1px solid #2a2a2a;
+border-radius:12px;
+padding:25px;
+}
+
+.skill-card h4{
+margin-bottom:10px;
+color:#f59e0b;
+}
+
+.skill-card p{
+color:#aaa;
+font-size:14px;
+}
+
+/* EDUCATION */
+
+.education-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.edu-card{
+background:#111;
+border:1px solid #2a2a2a;
+border-radius:12px;
+padding:25px;
+}
+
+.edu-card h4{
+margin-bottom:6px;
+}
+
+.edu-card span{
+color:#aaa;
+font-size:14px;
+}
+
+/* AVAILABILITY */
+
+.availability{
+text-align:center;
+max-width:650px;
+margin:auto;
+color:#aaa;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:40px 20px;
+border-top:1px solid #2a2a2a;
+color:#777;
+margin-top:100px;
+}
+
+/* REVEAL */
+
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:all .8s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+
+<section class="resume-hero reveal">
+
+<h1>Popoola Samuel Olumide</h1>
+<p>Web Developer — Nigeria</p>
+
+<div class="contact-links">
+
+<a href="mailto:samuelpopoola323@gmail.com">
+📧 samuelpopoola323@gmail.com
+</a>
+
+<a href="https://wa.me/2349122054068">
+📞 09122054068
+</a>
+
+<a href="https://samuelpopoola.vercel.app">
+🌐 samuelpopoola.vercel.app
+</a>
+
+</div>
+
+<a class="btn" href="resume.pdf">Download Resume</a>
+
+</section>
+
+<!-- SUMMARY -->
+
+<section class="container">
+
+<div class="section-header reveal">
+
+<h2>Professional Summary</h2>
+
+<div class="underline"></div>
+
+</div>
+
+<div class="summary card reveal">
+
+Web developer focused on building complete online experiences with clean interfaces, intuitive navigation, and solid backend logic. I turn ideas into functional digital products—from educational systems and dashboards to e-commerce and business platforms—prioritizing performance, security, and usability.
+
+</div>
+
+</section>
+
+<!-- EXPERIENCE -->
+
+<section class="container">
+
+<div class="section-header reveal">
+
+<h2>Experience</h2>
+
+<div class="underline"></div>
+
+</div>
+
+<div class="card experience-card reveal">
+
+<h3>Project-Based Web Development</h3>
+<span>2024 – Present</span>
+
+<ul>
+<li>Designed and deployed full-stack web applications</li>
+<li>Built authentication systems, dashboards, and payment integrations</li>
+<li>Handled deployment, performance optimization, and security</li>
+</ul>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section class="container">
+
+<div class="section-header reveal">
+
+<h2>Selected Projects</h2>
+
+<div class="underline"></div>
+
+</div>
+
+<div class="projects-grid">
+
+<div class="project-card reveal">
+
+<h4>TestPro (CBT System)</h4>
+
+<p>
+Remote examination platform with token-based access, timers, auto-submission, grading, admin panel, and result export.
+</p>
+
+<a href="#">Live Project →</a>
+
+</div>
+
+<div class="project-card reveal">
+
+<h4>MyPortal (School Portal)</h4>
+
+<p>
+Academic management system for student registration, course registration, results display, and multi-level admin control.
+</p>
+
+<a href="#">Live Project →</a>
+
+</div>
+
+<div class="project-card reveal">
+
+<h4>Tasty Bites (Restaurant)</h4>
+
+<p>
+Online meal ordering platform with payments, WhatsApp order summary, and stock management admin panel.
+</p>
+
+<a href="#">Live Project →</a>
+
+</div>
+
+<div class="project-card reveal">
+
+<h4>Abby Secret (Boutique)</h4>
+
+<p>
+E-commerce boutique with online payments, admin inventory control, and WhatsApp notifications.
+</p>
+
+<a href="#">Live Project →</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section class="container">
+
+<div class="section-header reveal">
+
+<h2>Skills</h2>
+
+<div class="underline"></div>
+
+</div>
+
+<div class="skills-grid">
+
+<div class="skill-card reveal">
+<h4>Frontend</h4>
+<p>HTML, CSS, JavaScript</p>
+</div>
+
+<div class="skill-card reveal">
+<h4>Backend</h4>
+<p>Node.js, Express</p>
+</div>
+
+<div class="skill-card reveal">
+<h4>Database</h4>
+<p>MongoDB</p>
+</div>
+
+<div class="skill-card reveal">
+<h4>Tools</h4>
+<p>GitHub, Vercel, Render, Cloudinary</p>
+</div>
+
+<div class="skill-card reveal">
+<h4>AI</h4>
+<p>OpenAI API</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- EDUCATION -->
+
+<section class="container">
+
+<div class="section-header reveal">
+
+<h2>Education</h2>
+
+<div class="underline"></div>
+
+</div>
+
+<div class="education-grid">
+
+<div class="edu-card reveal">
+
+<h4>HND (In View)</h4>
+
+<span>Computer Science — Grace Polytechnic</span>
+
+<p>2025 – Present</p>
+
+</div>
+
+<div class="edu-card reveal">
+
+<h4>National Diploma (ND)</h4>
+
+<span>Computer Science — Grace Polytechnic</span>
+
+<p>2023 – 2025</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- AVAILABILITY -->
+
+<section class="container">
+
+<div class="section-header reveal">
+
+<h2>Availability</h2>
+
+<div class="underline"></div>
+
+</div>
+
+<div class="availability reveal card">
+
+Open to freelance projects, part-time roles, and opportunities to build, learn, and grow.
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+© 2026 Popoola Samuel — TechWise Technology
+
+</footer>
+
+<script>
+
+// reveal animations
+
+const reveals = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("active");
+
+}
+
+});
+
+},{threshold:0.2});
+
+reveals.forEach(el=>observer.observe(el));
+
+</script>
+
+</body>
+</html>
