@@ -405,6 +405,67 @@ margin-bottom:60px;
   transform:scale(1.05);
 }
 
+/* IMAGE MODAL */
+.image-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* prevent blocking clicks on the page */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+/* modal active */
+.image-modal.show {
+  opacity: 1;
+  pointer-events: auto; /* enable interactions only when active */
+}
+
+/* blurred background */
+.body-blur::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(8px);
+  background: rgba(0,0,0,0.3);
+  z-index: 998;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.body-blur.active::before {
+  opacity: 1;
+}
+
+/* modal image */
+.modal-image {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  transform: scale(0.8);
+  transition: transform 0.35s ease;
+}
+
+/* zoom in */
+.image-modal.show .modal-image {
+  transform: scale(1);
+}
+
+/* close button */
+.close-modal {
+  position: absolute;
+  top: 25px;
+  right: 40px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  font-weight: 300;
+}
+
 /* content */
 
 .about-content{
@@ -1033,7 +1094,7 @@ scroll-behavior:smooth;
 </style>
 </head>
 
-<body id="top" >
+<body id="top" class="body-blur">
 
 <header>
 
@@ -1118,13 +1179,16 @@ A brief look into my background, philosophy, and what drives my work.
 
 </div>
 
-
-<div class="about-photo reveal">
-
+<div class="about-photo reveal" id="photoTrigger">
   <div class="photo-card">
     <img src="sam.jpg" alt="Popeson">
   </div>
+</div>
 
+<!-- Modal -->
+<div class="image-modal" id="imageModal">
+  <span class="close-modal">&times;</span>
+  <img class="modal-image" id="modalImage" src="" alt="">
 </div>
 
 <div class="about-content reveal">
@@ -1464,6 +1528,31 @@ When I'm not coding, I'm usually exploring new technologies, learning advanced b
 </footer>
 
 <script>
+const photo = document.getElementById("photoTrigger");
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImage");
+const closeBtn = document.querySelector(".close-modal");
+const body = document.body;
+
+photo.addEventListener("click", () => {
+  const img = photo.querySelector("img");
+  modalImg.src = img.src;
+  modal.classList.add("show");
+  body.classList.add("active"); // enable background blur
+});
+
+closeBtn.addEventListener("click", () => {
+  modal.classList.remove("show");
+  body.classList.remove("active"); // remove blur
+});
+
+modal.addEventListener("click", (e) => {
+  if(e.target === modal){
+    modal.classList.remove("show");
+    body.classList.remove("active");
+  }
+});
+
 function toggleMenu(){
     document.getElementById("mobileMenu").classList.toggle("show");
 }
