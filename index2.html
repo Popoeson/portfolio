@@ -341,6 +341,122 @@ font-size:22px;
 
 }
 
+/* ABOUT SECTION */
+
+#about{
+padding:120px 20px;
+max-width:1100px;
+margin:auto;
+text-align:center;
+}
+
+/* header */
+
+.about-header h2{
+font-size:36px;
+margin-bottom:10px;
+position:relative;
+display:inline-block;
+}
+
+.about-header h2::after{
+content:"";
+display:block;
+width:60px;
+height:3px;
+background:#f59e0b;
+margin:8px auto 0;
+}
+
+.about-subtitle{
+color:#aaa;
+font-size:15px;
+margin-bottom:60px;
+}
+
+/* photo card */
+
+.about-photo{
+margin-bottom:60px;
+}
+
+.photo-placeholder{
+background:#111;
+border:1px solid #2a2a2a;
+border-radius:14px;
+height:320px;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#666;
+font-size:14px;
+}
+
+/* content */
+
+.about-content{
+max-width:700px;
+margin:auto;
+margin-bottom:60px;
+}
+
+.about-content h3{
+font-size:26px;
+margin-bottom:20px;
+}
+
+.about-content h3 span{
+color:#f59e0b;
+}
+
+.about-content p{
+color:#aaa;
+line-height:1.8;
+margin-bottom:16px;
+}
+
+/* stats */
+
+.about-stats{
+display:flex;
+gap:20px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.stat-card{
+background:#111;
+border:1px solid #2a2a2a;
+border-radius:12px;
+padding:25px 40px;
+min-width:180px;
+}
+
+.stat-card h4{
+color:#f59e0b;
+font-size:32px;
+margin-bottom:6px;
+}
+
+.stat-card p{
+font-size:12px;
+letter-spacing:1px;
+color:#aaa;
+}
+
+/* reveal animation */
+
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:all .8s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
 </style>
 </head>
 
@@ -415,11 +531,97 @@ SCROLL ↓
 
 </section>
 
+<!-- ABOUT ME -->
+
+<section id="about">
+
+<div class="about-header reveal">
+
+<h2>About Me</h2>
+
+<p class="about-subtitle">
+A brief look into my background, philosophy, and what drives my work.
+</p>
+
+</div>
+
+
+<div class="about-photo reveal">
+
+<div class="photo-placeholder">
+PHOTO PLACEHOLDER
+</div>
+
+</div>
+
+
+<div class="about-content reveal">
+
+<h3>
+Engineering with <span>Precision</span> & <span>Passion</span>
+</h3>
+
+<p>
+I'm a software engineer specializing in building exceptional digital experiences. My focus is creating scalable applications that combine strong backend architecture with clean user interfaces.
+</p>
+
+<p>
+My journey into web development began when I started experimenting with HTML and CSS. What started as curiosity quickly evolved into a passion for building full digital platforms and solving real-world problems with code.
+</p>
+
+<p>
+When I'm not coding, I'm usually exploring new technologies, learning advanced backend architecture, or refining my craft as a full-stack developer.
+</p>
+
+</div>
+
+
+<div class="about-stats">
+
+<div class="stat-card reveal">
+<h4>5+</h4>
+<p>YEARS EXPERIENCE</p>
+</div>
+
+<div class="stat-card reveal">
+<h4>50+</h4>
+<p>PROJECTS COMPLETED</p>
+</div>
+
+<div class="stat-card reveal">
+<h4>20+</h4>
+<p>TECHNOLOGIES MASTERED</p>
+</div>
+
+</div>
+
+</section>
+
 <script>
 
 function toggleMenu(){
 document.getElementById("mobileMenu").classList.toggle("show");
 }
+
+
+// ABOUT ME SECTION 
+const reveals = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+entry.target.classList.add("active");
+}
+
+});
+
+},{threshold:0.2});
+
+reveals.forEach(el=>{
+observer.observe(el);
+});
 
 </script>
 
