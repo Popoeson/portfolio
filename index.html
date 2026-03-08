@@ -39,10 +39,65 @@ background:rgba(10,10,10,0.6);
 backdrop-filter:blur(10px);
 }
 
+/* LOGO */
+
 .logo{
-font-weight:700;
-font-size:20px;
-letter-spacing:2px;
+display:flex;
+align-items:center;
+}
+
+/* logo image */
+
+.logo img{
+height:42px;
+width:auto;
+object-fit:contain;
+
+/* reveal animation */
+opacity:0;
+transform:translateY(-10px) scale(0.9);
+
+animation:
+logoReveal 0.9s ease forwards,
+logoGlow 3s ease-in-out infinite 1s;
+}
+
+/* reveal on page load */
+
+@keyframes logoReveal{
+
+0%{
+opacity:0;
+transform:translateY(-12px) scale(0.85);
+}
+
+100%{
+opacity:1;
+transform:translateY(0) scale(1);
+}
+
+}
+
+/* soft continuous glow */
+
+@keyframes logoGlow{
+
+0%{
+filter:drop-shadow(0 0 2px rgba(255,149,0,0.15));
+}
+
+50%{
+filter:drop-shadow(0 0 8px rgba(255,149,0,0.45));
+}
+
+100%{
+filter:drop-shadow(0 0 2px rgba(255,149,0,0.15));
+}
+
+}
+.logo img:hover{
+transform:scale(1.06);
+filter:drop-shadow(0 0 10px rgba(255,149,0,0.6));
 }
 
 nav{
@@ -1101,7 +1156,9 @@ scroll-behavior:smooth;
 
 <header>
 
-<div class="logo">PS</div>
+<a href="index.html" class="logo">
+  <img src="images/logo.png" alt="Popoola Samuel Logo">
+</a>
 
 <nav>
 <a class="active" href="#">About</a>
