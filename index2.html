@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Popoola Samuel | Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -25,7 +24,85 @@ color:white;
 overflow-x:hidden;
 }
 
-/* HERO SECTION */
+/* NAVBAR */
+
+header{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:18px 40px;
+z-index:1000;
+background:rgba(10,10,10,0.6);
+backdrop-filter:blur(10px);
+}
+
+.logo{
+font-weight:700;
+font-size:20px;
+letter-spacing:2px;
+}
+
+nav{
+display:flex;
+gap:30px;
+}
+
+nav a{
+text-decoration:none;
+color:#ddd;
+font-size:14px;
+position:relative;
+}
+
+nav a.active::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-6px;
+width:100%;
+height:2px;
+background:#f59e0b;
+}
+
+.resume-btn{
+background:#f59e0b;
+color:black;
+padding:8px 16px;
+border-radius:20px;
+font-size:14px;
+text-decoration:none;
+}
+
+/* MOBILE MENU */
+
+.hamburger{
+display:none;
+font-size:24px;
+cursor:pointer;
+}
+
+.mobile-menu{
+display:none;
+position:absolute;
+top:70px;
+left:0;
+width:100%;
+background:#111;
+padding:20px;
+flex-direction:column;
+gap:20px;
+}
+
+.mobile-menu a{
+text-decoration:none;
+color:white;
+font-size:16px;
+}
+
+/* HERO */
 
 #hero{
 min-height:100vh;
@@ -38,7 +115,7 @@ position:relative;
 overflow:hidden;
 }
 
-/* glow background */
+/* glow */
 
 #hero::before{
 content:"";
@@ -50,18 +127,16 @@ filter:blur(140px);
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-z-index:0;
 }
 
 /* hero content */
 
 .hero-content{
-position:relative;
-z-index:2;
 max-width:800px;
+z-index:2;
 }
 
-/* availability badge */
+/* availability */
 
 .availability{
 display:inline-flex;
@@ -73,7 +148,6 @@ font-size:13px;
 background:#111;
 border:1px solid #2a2a2a;
 margin-bottom:25px;
-letter-spacing:1px;
 }
 
 .dot{
@@ -81,12 +155,29 @@ width:8px;
 height:8px;
 background:#22c55e;
 border-radius:50%;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+
+0%{
+box-shadow:0 0 0 0 rgba(34,197,94,0.7);
+}
+
+70%{
+box-shadow:0 0 0 10px rgba(34,197,94,0);
+}
+
+100%{
+box-shadow:0 0 0 0 rgba(34,197,94,0);
+}
+
 }
 
 /* hero text */
 
 #hero h1{
-font-size:38px;
+font-size:34px;
 margin-bottom:10px;
 }
 
@@ -96,22 +187,51 @@ font-weight:700;
 color:#f59e0b;
 }
 
-/* role */
+/* animated titles */
 
-.hero-role{
-font-size:20px;
-font-weight:500;
+.title-container{
+height:30px;
+overflow:hidden;
 margin-bottom:20px;
+}
+
+.titles{
+display:flex;
+flex-direction:column;
+animation:slideTitles 12s infinite;
+}
+
+.titles span{
+height:30px;
+font-size:20px;
 color:#ddd;
+}
+
+@keyframes slideTitles{
+
+0%{transform:translateY(0)}
+20%{transform:translateY(0)}
+
+25%{transform:translateY(-30px)}
+45%{transform:translateY(-30px)}
+
+50%{transform:translateY(-60px)}
+70%{transform:translateY(-60px)}
+
+75%{transform:translateY(-90px)}
+95%{transform:translateY(-90px)}
+
+100%{transform:translateY(-120px)}
+
 }
 
 /* description */
 
 .hero-description{
-max-width:620px;
+max-width:600px;
 margin:auto;
-line-height:1.6;
 color:#aaa;
+line-height:1.6;
 margin-bottom:35px;
 }
 
@@ -137,13 +257,13 @@ background:#f59e0b;
 color:black;
 }
 
-.hero-btn.primary:hover{
-transform:translateY(-3px);
-}
-
 .hero-btn.secondary{
 border:1px solid #444;
 color:white;
+}
+
+.hero-btn.primary:hover{
+transform:translateY(-3px);
 }
 
 .hero-btn.secondary:hover{
@@ -164,16 +284,20 @@ color:#aaa;
 
 @media(max-width:768px){
 
+nav{
+display:none;
+}
+
+.hamburger{
+display:block;
+}
+
+.mobile-menu.show{
+display:flex;
+}
+
 .hero-name{
-font-size:44px;
-}
-
-#hero h1{
-font-size:28px;
-}
-
-.hero-role{
-font-size:16px;
+font-size:42px;
 }
 
 }
@@ -182,6 +306,31 @@ font-size:16px;
 </head>
 
 <body>
+
+<header>
+
+<div class="logo">PS</div>
+
+<nav>
+<a class="active" href="#">About</a>
+<a href="#">Skills</a>
+<a href="#">Projects</a>
+<a href="#">Experience</a>
+</nav>
+
+<a href="#" class="resume-btn">↓ Resume</a>
+
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+
+<div class="mobile-menu" id="mobileMenu">
+<a href="#">About</a>
+<a href="#">Skills</a>
+<a href="#">Projects</a>
+<a href="#">Experience</a>
+<a href="#">Resume</a>
+</div>
+
+</header>
 
 <section id="hero">
 
@@ -196,14 +345,18 @@ Hi, I'm <br>
 <span class="hero-name">Popoola Samuel</span>
 </h1>
 
-<div class="hero-role">
-Full Stack Developer | Building Real-World Systems
+<div class="title-container">
+<div class="titles">
+<span>Full Stack Developer</span>
+<span>Backend System Builder</span>
+<span>Web Application Architect</span>
+<span>API & Database Engineer</span>
+<span>Building Real-World Systems</span>
+</div>
 </div>
 
 <p class="hero-description">
-I build scalable web applications and digital platforms — from educational systems and business portals
-to full e-commerce platforms. My focus is clean interfaces, strong backend logic,
-and real-world usability.
+I build scalable web applications and digital platforms — from educational systems and business portals to full e-commerce platforms. My focus is clean interfaces, strong backend logic, and real-world usability.
 </p>
 
 <div class="hero-buttons">
@@ -218,6 +371,14 @@ SCROLL ↓
 </div>
 
 </section>
+
+<script>
+
+function toggleMenu(){
+document.getElementById("mobileMenu").classList.toggle("show");
+}
+
+</script>
 
 </body>
 </html>
