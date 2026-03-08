@@ -1515,6 +1515,11 @@ const modalImg = document.getElementById("modalImage");
 const closeBtn = document.querySelector(".close-modal");
 const body = document.body;
 
+function toggleMenu(){  
+    document.getElementById("mobileMenu").classList.toggle("show");  
+}  
+  
+
 // Open modal
 photo.addEventListener("click", () => {
   const img = photo.querySelector("img");
