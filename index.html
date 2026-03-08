@@ -341,68 +341,63 @@ font-size:22px;
 
 }
 
-/* ABOUT SECTION */
 
-#about{
-padding:120px 20px;
-max-width:1100px;
-margin:auto;
-text-align:center;
+/* About Section */
+#about {
+  padding: 120px 20px;
+  max-width: 1100px;
+  margin: auto;
+  text-align: center;
 }
 
-/* header */
-
-.about-header h2{
-font-size:36px;
-margin-bottom:10px;
-position:relative;
-display:inline-block;
+.about-header h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  display: inline-block;
+  position: relative;
 }
 
-.about-header h2::after{
-content:"";
-display:block;
-width:60px;
-height:3px;
-background:#f59e0b;
-margin:8px auto 0;
+.about-header h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #f59e0b;
+  margin: 8px auto 0;
 }
 
-.about-subtitle{
-color:#aaa;
-font-size:15px;
-margin-bottom:60px;
+.about-subtitle {
+  color: #aaa;
+  font-size: 15px;
+  margin-bottom: 60px;
 }
 
-/* photo card */
-
-.about-photo{
-  margin-bottom:60px;
-  max-width:420px; /* prevents it from stretching too wide on desktop */
+/* Photo Card */
+.about-photo {
+  margin-bottom: 60px;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* card container */
-
-.photo-card{
-  background:#111;
-  border:1px solid #2a2a2a;
-  border-radius:14px;
-  overflow:hidden;
-  aspect-ratio: 3 / 4; /* portrait ratio */
-  cursor:pointer;
+.photo-card {
+  background: #111;
+  border: 1px solid #2a2a2a;
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  cursor: pointer;
 }
 
-/* actual image */
-
-.photo-card img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:transform 0.4s ease;
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
-.photo-card:hover img{
-  transform:scale(1.05);
+.photo-card:hover img {
+  transform: scale(1.05);
 }
 
 /* IMAGE MODAL */
@@ -415,32 +410,15 @@ margin-bottom:60px;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.35s ease;
-  z-index: 2000; /* above header */
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.6); /* semi-transparent overlay */
 }
 
-/* modal active */
 .image-modal.show {
   opacity: 1;
   pointer-events: auto;
 }
 
-/* blurred background */
-.body-blur::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  backdrop-filter: blur(8px);
-  background: rgba(0,0,0,0.25);
-  z-index: 1999;
-  opacity: 0;
-  transition: opacity 0.35s ease;
-}
-
-.body-blur.active::before {
-  opacity: 1;
-}
-
-/* modal image */
 .modal-image {
   max-width: 80%;
   max-height: 80%;
@@ -451,13 +429,11 @@ margin-bottom:60px;
   opacity: 0;
 }
 
-/* zoom in and fade */
 .image-modal.show .modal-image {
   transform: scale(1);
   opacity: 1;
 }
 
-/* close button */
 .close-modal {
   position: absolute;
   top: 25px;
@@ -466,7 +442,31 @@ margin-bottom:60px;
   color: white;
   cursor: pointer;
   font-weight: 300;
-  z-index: 2001; /* above modal image */
+  z-index: 2001;
+}
+
+/* Body Blur */
+.body-blur.active::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(8px);
+  background: rgba(0,0,0,0.25);
+  z-index: 1999;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Reveal Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* content */
@@ -1168,70 +1168,47 @@ SCROLL ↓
 
 </section>
 
-<!-- ABOUT ME -->
-
+<!-- ABOUT ME SECTION -->
 <section id="about">
 
-<div class="about-header reveal">
-
-<h2>About Me</h2>
-
-<p class="about-subtitle">
-A brief look into my background, philosophy, and what drives my work.
-</p>
-
-</div>
-
-<div class="about-photo reveal" id="photoTrigger">
-  <div class="photo-card">
-    <img src="sam.jpg" alt="Popeson">
+  <div class="about-header reveal">
+    <h2>About Me</h2>
+    <p class="about-subtitle">
+      A brief look into my background, philosophy, and what drives my work.
+    </p>
   </div>
-</div>
 
-<div class="about-content reveal">
+  <div class="about-photo reveal" id="photoTrigger">
+    <div class="photo-card">
+      <img src="sam.jpg" alt="Popoola Samuel">
+    </div>
+  </div>
 
-<h3>
-Engineering with <span>Precision</span> & <span>Passion</span>
-</h3>
+  <div class="about-content reveal">
+    <h3>Engineering with <span>Precision</span> & <span>Passion</span></h3>
+    <p>I'm a software engineer specializing in building exceptional digital experiences. My focus is creating scalable applications that combine strong backend architecture with clean user interfaces.</p>
+    <p>My journey into web development began when I started experimenting with HTML and CSS. What started as curiosity quickly evolved into a passion for building full digital platforms and solving real-world problems with code.</p>
+    <p>When I'm not coding, I'm usually exploring new technologies, learning advanced backend architecture, or refining my craft as a full-stack developer.</p>
+  </div>
 
-<p>
-I'm a software engineer specializing in building exceptional digital experiences. My focus is creating scalable applications that combine strong backend architecture with clean user interfaces.
-</p>
-
-<p>
-My journey into web development began when I started experimenting with HTML and CSS. What started as curiosity quickly evolved into a passion for building full digital platforms and solving real-world problems with code.
-</p>
-
-<p>
-When I'm not coding, I'm usually exploring new technologies, learning advanced backend architecture, or refining my craft as a full-stack developer.
-</p>
-
-</div>
-
-
-<div class="about-stats">
-
-<div class="stat-card reveal">
-<h4>5+</h4>
-<p>YEARS EXPERIENCE</p>
-</div>
-
-<div class="stat-card reveal">
-<h4>50+</h4>
-<p>PROJECTS COMPLETED</p>
-</div>
-
-<div class="stat-card reveal">
-<h4>20+</h4>
-<p>TECHNOLOGIES MASTERED</p>
-</div>
-
-</div>
+  <div class="about-stats">
+    <div class="stat-card reveal">
+      <h4>5+</h4>
+      <p>YEARS EXPERIENCE</p>
+    </div>
+    <div class="stat-card reveal">
+      <h4>50+</h4>
+      <p>PROJECTS COMPLETED</p>
+    </div>
+    <div class="stat-card reveal">
+      <h4>20+</h4>
+      <p>TECHNOLOGIES MASTERED</p>
+    </div>
+  </div>
 
 </section>
 
-
-<!--Modal-->
+<!-- IMAGE MODAL (Place directly under <body>) -->
 <div class="image-modal" id="imageModal">
   <span class="close-modal">&times;</span>
   <img class="modal-image" id="modalImage" src="" alt="">
@@ -1538,18 +1515,21 @@ const modalImg = document.getElementById("modalImage");
 const closeBtn = document.querySelector(".close-modal");
 const body = document.body;
 
+// Open modal
 photo.addEventListener("click", () => {
   const img = photo.querySelector("img");
   modalImg.src = img.src;
   modal.classList.add("show");
-  body.classList.add("active"); // enable background blur
+  body.classList.add("active"); // blur background
 });
 
+// Close modal
 closeBtn.addEventListener("click", () => {
   modal.classList.remove("show");
-  body.classList.remove("active"); // remove blur
+  body.classList.remove("active");
 });
 
+// Click outside image closes modal
 modal.addEventListener("click", (e) => {
   if(e.target === modal){
     modal.classList.remove("show");
@@ -1557,25 +1537,17 @@ modal.addEventListener("click", (e) => {
   }
 });
 
-function toggleMenu(){
-    document.getElementById("mobileMenu").classList.toggle("show");
-}
-
-// IntersectionObserver for all reveal elements
+// IntersectionObserver for reveal animations
 const reveals = document.querySelectorAll(".reveal");
-
 const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add("active");
-        }
-    });
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("active");
+    }
+  });
 }, { threshold: 0.2 });
 
-// Observe all reveal elements
-reveals.forEach(el => {
-    observer.observe(el);
-});
+reveals.forEach(el => observer.observe(el));
 
 </script>
 
