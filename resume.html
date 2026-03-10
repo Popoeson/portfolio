@@ -268,7 +268,7 @@ transform:translateY(0);
 
 </div>
 
-<a class="btn" href="resume.pdf" download="Popoola-Samuel-Resume.pdf">
+<a id="downloadBtn" class="btn" href="resume.pdf" download="Popoola-Samuel-Resume.pdf">
 Download Resume
 </a>
 
@@ -517,6 +517,28 @@ entry.target.classList.add("active");
 },{threshold:0.2});
 
 reveals.forEach(el=>observer.observe(el));
+
+/* DOWNLOAD BUTTON EFFECT */
+
+const downloadBtn = document.getElementById("downloadBtn");
+
+downloadBtn.addEventListener("click", function(){
+
+// change text
+downloadBtn.textContent = "Downloading...";
+
+// disable multiple clicks
+downloadBtn.style.pointerEvents = "none";
+
+// restore after short delay
+setTimeout(() => {
+
+downloadBtn.textContent = "Download Resume";
+downloadBtn.style.pointerEvents = "auto";
+
+}, 2500);
+
+});
 
 </script>
 
