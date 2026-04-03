@@ -5,6 +5,7 @@
 <title>Popeson</title>
 
 <style>
+
 @font-face{
     font-family: "Avalone";
     src: url("Avalone.ttf");
@@ -19,39 +20,21 @@ body{
     align-items:center;
     font-family:Avalone, serif;
     overflow:hidden;
-    transition:opacity 1.5s ease;
-}
-
-body.fade-out{
-    opacity:0;
 }
 
 .container{
     text-align:center;
 }
 
-/* ================= LOGO ================= */
-
 .logo{
     display:flex;
     justify-content:center;
     gap:8px;
-    font-size:clamp(120px,10vw,180px); /* responsive, bigger font */
+    font-size:60px;
     color:#d4af37;
     letter-spacing:6px;
-    position:relative;
 }
 
-/* letters fade only, no translateY, no vertical shift */
-.letter{
-    opacity:0;
-    transition:opacity .8s ease;
-    text-shadow:0 0 8px rgba(212,175,55,.4);
-}
-
-.letter.show{
-    opacity:1;
-}
 
 /* ================= GOLD SWEEP ================= */
 
@@ -92,16 +75,27 @@ body.fade-out{
     100%{ text-shadow:0 0 10px rgba(212,175,55,.3); }
 }
 
-/* ================= LOADING BAR ================= */
+.letter{
+    opacity:0;
+    transform:translateY(20px);
+    transition:all .8s ease;
+    text-shadow:0 0 8px rgba(212,175,55,.4);
+}
+
+.letter.show{
+    opacity:1;
+    transform:translateY(0);
+}
 
 .loading-container{
     width:100%;
-    margin-top:30px;
+    margin-top:25px;
 }
 
 .loading-bar{
     height:3px;
     background:#222;
+    position:relative;
     overflow:hidden;
 }
 
@@ -109,6 +103,7 @@ body.fade-out{
     height:100%;
     width:0%;
     background:#d4af37;
+    transition:width .4s linear;
 }
 
 /* ================= BUTTON ================= */
@@ -155,6 +150,7 @@ body.fade-out{
     100%{ transform:scale(1); }
 }
 
+
 </style>
 </head>
 
@@ -162,23 +158,23 @@ body.fade-out{
 
 <div class="container">
 
-    <div class="logo">
-        <span class="letter">P</span>
-        <span class="letter">O</span>
-        <span class="letter">P</span>
-        <span class="letter">E</span>
-        <span class="letter">S</span>
-        <span class="letter">O</span>
-        <span class="letter">N</span>
-    </div>
+<div class="logo">
+<span class="letter">P</span>
+<span class="letter">O</span>
+<span class="letter">P</span>
+<span class="letter">E</span>
+<span class="letter">S</span>
+<span class="letter">O</span>
+<span class="letter">N</span>
+</div>
 
-    <div class="loading-container">
-        <div class="loading-bar">
-            <div class="progress"></div>
-        </div>
-    </div>
+<div class="loading-container">
+<div class="loading-bar">
+<div class="progress"></div>
+</div>
+</div>
 
-    <button class="continue-btn" onclick="goNext()">CONTINUE</button>
+<button class="continue-btn" onclick="goNext()">CONTINUE</button>
 
 </div>
 
