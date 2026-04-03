@@ -36,24 +36,21 @@ body.fade-out{
     display:flex;
     justify-content:center;
     gap:8px;
-    font-size:clamp(90px,10vw,180px); /* responsive font */
+    font-size:clamp(120px,10vw,180px); /* bigger, responsive font */
     color:#d4af37;
     letter-spacing:6px;
     position:relative;
 }
 
-/* letter reveal */
-
+/* letters fade only, no translateY */
 .letter{
     opacity:0;
-    transform:translateY(20px);
-    transition:all .8s ease;
+    transition:opacity .8s ease;
     text-shadow:0 0 8px rgba(212,175,55,.4);
 }
 
 .letter.show{
     opacity:1;
-    transform:translateY(0);
 }
 
 /* ================= GOLD SWEEP ================= */
