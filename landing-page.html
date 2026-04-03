@@ -36,13 +36,13 @@ body.fade-out{
     display:flex;
     justify-content:center;
     gap:8px;
-    font-size:clamp(120px,10vw,180px); /* bigger, responsive font */
+    font-size:clamp(120px,10vw,180px); /* responsive, bigger font */
     color:#d4af37;
     letter-spacing:6px;
     position:relative;
 }
 
-/* letters fade only, no translateY */
+/* letters fade only, no translateY, no vertical shift */
 .letter{
     opacity:0;
     transition:opacity .8s ease;
@@ -192,12 +192,12 @@ let width = 0;
 let step = 100 / letters.length;
 let letterIndex = 0;
 
-/* slower cinematic loading */
+/* slow cinematic loading */
 let loader = setInterval(()=>{
-    width += 0.5; // slow majestic bar
+    width += 0.5; // slow progress
     progress.style.width = width + "%";
 
-    // show letters exactly when bar reaches their position
+    // show letters exactly at their progress step
     if(width >= step * (letterIndex+1) && letterIndex < letters.length){
         letters[letterIndex].classList.add("show");
         letterIndex++;
@@ -214,7 +214,7 @@ let loader = setInterval(()=>{
 
 },40);
 
-/* button click */
+/* button click fade-out */
 function goNext(){
     button.classList.add("clicked");
     setTimeout(()=>{
