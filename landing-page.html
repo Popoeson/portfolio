@@ -20,6 +20,12 @@ body{
     align-items:center;
     font-family:Avalone, serif;
     overflow:hidden;
+    transition:opacity 1.5s ease;
+}
+
+/* fade-out when leaving */
+body.fade-out{
+    opacity:0;
 }
 
 .container{
@@ -32,17 +38,17 @@ body{
     display:flex;
     justify-content:center;
     gap:.5vw;
-    font-size:clamp(70px, 9vw, 150px);
+    font-size:clamp(80px,10vw,170px);
     color:#d4af37;
-    letter-spacing:.3em;
+    letter-spacing:.25em;
     position:relative;
 }
 
 .letter{
     opacity:0;
-    transform:translateY(40px);
+    transform:translateY(30px);
     transition:all .8s ease;
-    text-shadow:0 0 12px rgba(212,175,55,.5);
+    text-shadow:0 0 14px rgba(212,175,55,.6);
 }
 
 .letter.show{
@@ -50,7 +56,7 @@ body{
     transform:translateY(0);
 }
 
-/* ================= LIGHT SWEEP ================= */
+/* ================= GOLD SWEEP ================= */
 
 .logo::after{
     content:"";
@@ -62,7 +68,7 @@ body{
     background:linear-gradient(
         120deg,
         transparent,
-        rgba(255,215,120,0.8),
+        rgba(255,215,120,0.9),
         transparent
     );
     transform:skewX(-25deg);
@@ -74,23 +80,15 @@ body{
 }
 
 @keyframes sweep{
-    0%{
-        left:-120%;
-        opacity:0;
-    }
-    20%{
-        opacity:1;
-    }
-    100%{
-        left:140%;
-        opacity:0;
-    }
+    0%{left:-120%;opacity:0;}
+    20%{opacity:1;}
+    100%{left:140%;opacity:0;}
 }
 
 /* ================= LOADING BAR ================= */
 
 .loading-container{
-    margin-top:30px;
+    margin-top:35px;
 }
 
 .loading-bar{
@@ -98,7 +96,6 @@ body{
     height:3px;
     background:#222;
     overflow:hidden;
-    position:relative;
 }
 
 .progress{
@@ -110,9 +107,9 @@ body{
 /* ================= BUTTON ================= */
 
 .continue-btn{
-    margin-top:60px;
-    padding:14px 48px;
-    border-radius:40px;
+    margin-top:70px;
+    padding:15px 55px;
+    border-radius:50px;
     border:1px solid #d4af37;
     background:transparent;
     color:#d4af37;
@@ -124,11 +121,12 @@ body{
     opacity:0;
 }
 
+/* drop animation */
 .continue-btn.show{
-    animation:curtainDrop 1s ease forwards;
+    animation:drop 1.2s ease forwards;
 }
 
-@keyframes curtainDrop{
+@keyframes drop{
 
     0%{
         transform:translateY(-120px);
@@ -136,16 +134,17 @@ body{
     }
 
     60%{
-        transform:translateY(15px);
+        transform:translateY(10px);
         opacity:1;
     }
 
     80%{
-        transform:translateY(-6px);
+        transform:translateY(-4px);
     }
 
     100%{
         transform:translateY(0);
+        opacity:1;
     }
 
 }
@@ -208,21 +207,29 @@ let loader = setInterval(()=>{
 
         setTimeout(()=>{
 
-            /* gold light sweep */
+            /* gold sweep */
             logo.classList.add("sweep");
 
-            /* button appears after sweep */
             setTimeout(()=>{
                 button.classList.add("show");
-            },1400);
+            },1500);
 
         },400);
     }
 
 },45);
 
+
+/* cinematic fade before redirect */
+
 function goNext(){
-    window.location.href="home.html";
+
+    document.body.classList.add("fade-out");
+
+    setTimeout(()=>{
+        window.location.href="home.html";
+    },1500);
+
 }
 
 </script>
