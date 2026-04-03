@@ -146,20 +146,31 @@ const loadingContainer = document.querySelector('.loading-container');
 loadingContainer.style.width = logo.offsetWidth + "px";
 
 let width = 0;
-const totalLetters = letters.length;
-const loaderSpeed = 0.3; // faster
-const interval = 10; // smaller interval for smooth effect
+const loaderSpeed = 0.3; // progress increment per interval
+const interval = 10;     // update interval in ms
+
+// Get the left positions of each letter relative to the logo container
+const letterPositions = Array.from(letters).map(letter => {
+    return letter.offsetLeft + letter.offsetWidth / 2; // center of letter
+});
+const logoWidth = logo.offsetWidth;
 
 const loader = setInterval(() => {
     width += loaderSpeed;
     if(width > 100) width = 100;
+
+    // set progress width
     progress.style.width = width + "%";
 
-    // calculate how many letters should be visible based on bar width
-    const lettersToShow = Math.floor((width / 100) * totalLetters);
-    for(let i = 0; i < lettersToShow; i++){
-        letters[i].classList.add("show");
-    }
+    // convert current progress to pixel position
+    const currentPos = (width / 100) * logoWidth;
+
+    // show letters whose position <= current progress
+    letters.forEach((letter, index) => {
+        if(currentPos >= letterPositions[index]){
+            letter.classList.add("show");
+        }
+    });
 
     if(width >= 100){
         clearInterval(loader);
@@ -178,6 +189,5 @@ function goNext(){
     },350);
 }
 </script>
-
 </body>
 </html>
