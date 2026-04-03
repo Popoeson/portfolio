@@ -121,6 +121,33 @@ body.fade-out{
     50%{ transform:scale(1.15); background:#d4af37; color:#000; }
     100%{ transform:scale(1); }
 }
+
+/* ================= GOLD LIGHT SWEEP ================= */
+.logo::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 40%;            /* width of the light streak */
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 215, 120, 0.8),
+        transparent
+    );
+    transform: skewX(-25deg);
+    pointer-events: none;  /* allow clicks through */
+}
+
+.logo.sweep::after {
+    animation:sweep 2s linear forwards;
+}
+
+@keyframes sweep {
+    from { left: -100%; }
+    to { left: 100%; }
+}
 </style>
 </head>
 <body>
@@ -187,12 +214,17 @@ const loader = setInterval(() => {
     }
 });
 
-    if(width >= 100){
-        clearInterval(loader);
-        setTimeout(()=>{
-            button.classList.add("show");
-        }, 300);
-    }
+if(width >= 100){
+    clearInterval(loader);
+    // start gold sweep first
+    logo.classList.add("sweep");
+
+    // show button after sweep finishes
+    setTimeout(()=>{
+        button.classList.add("show");
+    }, 2200); // slightly longer than sweep duration (2s)
+}
+
 
 }, interval);
 
