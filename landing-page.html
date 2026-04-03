@@ -7,8 +7,8 @@
 <style>
 
 @font-face{
-    font-family:"Avalone";
-    src:url("Avalone.ttf");
+    font-family: "Avalone";
+    src: url("Avalone.ttf");
 }
 
 body{
@@ -20,30 +20,20 @@ body{
     align-items:center;
     font-family:Avalone, serif;
     overflow:hidden;
-    transition:opacity 1.5s ease;
-}
-
-body.fade-out{
-    opacity:0;
 }
 
 .container{
     text-align:center;
 }
 
-/* ================= LOGO ================= */
-
 .logo{
     display:flex;
     justify-content:center;
     gap:8px;
-    font-size:clamp(80px,10vw,170px);
+    font-size:60px;
     color:#d4af37;
     letter-spacing:6px;
-    position:relative;
 }
-
-/* letter reveal */
 
 .letter{
     opacity:0;
@@ -57,65 +47,15 @@ body.fade-out{
     transform:translateY(0);
 }
 
-/* ================= GOLD SWEEP ================= */
-
-.logo::after{
-    content:"";
-    position:absolute;
-    top:0;
-    left:-150%;
-    width:60%;
-    height:100%;
-    background:linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,215,120,.85),
-        transparent
-    );
-    transform:skewX(-25deg);
-}
-
-.logo.sweep::after{
-    animation:sweep 4s linear infinite;
-}
-
-@keyframes sweep{
-    from{left:-150%;}
-    to{left:150%;}
-}
-
-/* ================= TEXT GLOW PULSE ================= */
-
-.logo.waiting{
-    animation:glowPulse 3s ease-in-out infinite;
-}
-
-@keyframes glowPulse{
-
-    0%{
-        text-shadow:0 0 10px rgba(212,175,55,.3);
-    }
-
-    50%{
-        text-shadow:0 0 35px rgba(212,175,55,.9);
-    }
-
-    100%{
-        text-shadow:0 0 10px rgba(212,175,55,.3);
-    }
-
-}
-
-/* ================= LOADING BAR ================= */
-
 .loading-container{
     width:100%;
-    margin-top:30px;
+    margin-top:25px;
 }
 
 .loading-bar{
     height:3px;
     background:#222;
+    position:relative;
     overflow:hidden;
 }
 
@@ -123,73 +63,30 @@ body.fade-out{
     height:100%;
     width:0%;
     background:#d4af37;
+    transition:width .4s linear;
 }
 
-/* ================= BUTTON ================= */
-
 .continue-btn{
-    margin-top:45px;
-    padding:14px 48px;
+    margin-top:40px;
+    padding:12px 40px;
     border-radius:40px;
     border:1px solid #d4af37;
     background:transparent;
     color:#d4af37;
-    font-size:18px;
+    font-size:16px;
     letter-spacing:2px;
     cursor:pointer;
-
     opacity:0;
-    transform:scale(.85);
+    transition:.6s;
 }
-
-/* cinematic appear without moving layout */
 
 .continue-btn.show{
-    animation:fadePop 1s ease forwards;
-}
-
-@keyframes fadePop{
-
-    0%{
-        opacity:0;
-        transform:scale(.85);
-    }
-
-    70%{
-        opacity:1;
-        transform:scale(1.05);
-    }
-
-    100%{
-        opacity:1;
-        transform:scale(1);
-    }
-
+    opacity:1;
 }
 
 .continue-btn:hover{
     background:#d4af37;
     color:#000;
-}
-
-/* button click pulse */
-
-.continue-btn.clicked{
-    animation:buttonPulse .6s ease;
-}
-
-@keyframes buttonPulse{
-
-    0%{transform:scale(1);}
-
-    50%{
-        transform:scale(1.15);
-        background:#d4af37;
-        color:#000;
-    }
-
-    100%{transform:scale(1);}
-
 }
 
 </style>
@@ -215,7 +112,7 @@ body.fade-out{
 </div>
 </div>
 
-<button class="continue-btn">CONTINUE</button>
+<button class="continue-btn" onclick="goNext()">CONTINUE</button>
 
 </div>
 
@@ -223,18 +120,15 @@ body.fade-out{
 
 const letters = document.querySelectorAll(".letter");
 const progress = document.querySelector(".progress");
-const logo = document.querySelector(".logo");
 const button = document.querySelector(".continue-btn");
 
 let width = 0;
 let step = 100 / letters.length;
 let letterIndex = 0;
 
-/* slower cinematic loading */
+let loader = setInterval(() => {
 
-let loader = setInterval(()=>{
-
-    width += 0.5;
+    width += 1;
     progress.style.width = width + "%";
 
     if(width >= step * (letterIndex+1) && letterIndex < letters.length){
@@ -243,40 +137,18 @@ let loader = setInterval(()=>{
     }
 
     if(width >= 100){
-
         clearInterval(loader);
-
         setTimeout(()=>{
-
-            logo.classList.add("sweep");
-            logo.classList.add("waiting");
-
             button.classList.add("show");
-
         },500);
-
     }
 
-},40);
+},50);
 
 
-/* button click */
-
-button.addEventListener("click",()=>{
-
-    button.classList.add("clicked");
-
-    setTimeout(()=>{
-
-        document.body.classList.add("fade-out");
-
-        setTimeout(()=>{
-            window.location.href="home.html";
-        },1500);
-
-    },350);
-
-});
+function goNext(){
+    window.location.href = "home.html";
+}
 
 </script>
 
