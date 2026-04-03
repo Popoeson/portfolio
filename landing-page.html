@@ -42,11 +42,12 @@ body.fade-out{
     font-size:clamp(120px,10vw,180px); 
     color:#d4af37;
     letter-spacing:6px;
+    position:relative;
 }
 
 .letter{
     opacity:0;
-    transition:opacity .8s ease;
+    transition:opacity .3s linear;
     text-shadow:0 0 8px rgba(212,175,55,.4);
 }
 
@@ -140,31 +141,34 @@ const progress = document.querySelector(".progress");
 const logo = document.querySelector(".logo");
 const button = document.querySelector(".continue-btn");
 
+// make loading bar match logo width
 const loadingContainer = document.querySelector('.loading-container');
 loadingContainer.style.width = logo.offsetWidth + "px";
 
 let width = 0;
-let letterIndex = 0;
-const step = 100 / letters.length;
+const totalLetters = letters.length;
+const loaderSpeed = 0.8; // faster
+const interval = 35; // smaller interval for smooth effect
 
-// slow cinematic loader
 const loader = setInterval(() => {
-    width += 0.25; // slower increment
+    width += loaderSpeed;
+    if(width > 100) width = 100;
     progress.style.width = width + "%";
 
-    // show letters exactly at their step
-    while (letterIndex < letters.length && width >= step * (letterIndex + 1)) {
-        letters[letterIndex].classList.add("show");
-        letterIndex++;
+    // calculate how many letters should be visible based on bar width
+    const lettersToShow = Math.floor((width / 100) * totalLetters);
+    for(let i = 0; i < lettersToShow; i++){
+        letters[i].classList.add("show");
     }
 
     if(width >= 100){
         clearInterval(loader);
         setTimeout(()=>{
             button.classList.add("show");
-        },500);
+        }, 300);
     }
-}, 60); // slower interval for smooth cinematic effect
+
+}, interval);
 
 function goNext(){
     button.classList.add("clicked");
