@@ -146,8 +146,8 @@ const loadingContainer = document.querySelector('.loading-container');
 loadingContainer.style.width = logo.offsetWidth + "px";
 
 let width = 0;
-const loaderSpeed = 0.3; // progress increment per interval
-const interval = 10;     // update interval in ms
+const loaderSpeed = 0.15; // smaller increment = slower bar
+const interval = 15;      // slightly slower updates for smooth effect
 
 // Get the left positions of each letter relative to the logo container
 const letterPositions = Array.from(letters).map(letter => {
@@ -168,7 +168,10 @@ const loader = setInterval(() => {
     // show letters whose position <= current progress
     letters.forEach((letter, index) => {
         if(currentPos >= letterPositions[index]){
-            letter.classList.add("show");
+            if(!letter.classList.contains("show")){
+                letter.style.transition = "opacity 0.3s ease"; // smooth fade
+                letter.classList.add("show");
+            }
         }
     });
 
@@ -189,5 +192,6 @@ function goNext(){
     },350);
 }
 </script>
+
 </body>
 </html>
