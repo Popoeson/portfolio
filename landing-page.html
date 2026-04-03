@@ -43,17 +43,13 @@ body.fade-out{
     color:#d4af37;
     letter-spacing:6px;
     position:relative;
-    overflow: hidden; /* <-- this ensures sweep stays inside logo */
+    overflow:hidden; /* ensure sweep stays inside logo */
 }
 
 .letter{
     opacity:0;
     transition:opacity .3s linear;
     text-shadow:0 0 8px rgba(212,175,55,.4);
-}
-
-.letter.show{
-    opacity:1;
 }
 
 /* ================= CINEMATIC LETTER FADE ================= */
@@ -128,8 +124,8 @@ body.fade-out{
     content: "";
     position: absolute;
     top: 0;
-    left: -100%;
-    width: 40%;            /* width of the light streak */
+    left: -40%; /* start slightly off left */
+    width: 40%;  /* width of the light streak */
     height: 100%;
     background: linear-gradient(
         120deg,
@@ -138,16 +134,20 @@ body.fade-out{
         transparent
     );
     transform: skewX(-25deg);
-    pointer-events: none;  /* allow clicks through */
+    pointer-events: none;
+    opacity:0; /* initially hidden */
 }
 
+/* active sweeping effect */
 .logo.sweep::after {
-    animation:sweep 2s linear forwards;
+    opacity:1;
+    animation: sweepLoop 2s ease-in-out infinite;
 }
 
-@keyframes sweep {
-    from { left: -100%; }
-    to { left: 100%; }
+@keyframes sweepLoop {
+    0% { left: -40%; }
+    50% { left: 100%; }
+    100% { left: -40%; }
 }
 </style>
 </head>
@@ -186,12 +186,12 @@ const loadingContainer = document.querySelector('.loading-container');
 loadingContainer.style.width = logo.offsetWidth + "px";
 
 let width = 0;
-const loaderSpeed = 0.15; // smaller increment = slower bar
-const interval = 15;      // slightly slower updates for smooth effect
+const loaderSpeed = 0.15;
+const interval = 15;
 
-// Get the left positions of each letter relative to the logo container
+// Get the center positions of each letter relative to the logo container
 const letterPositions = Array.from(letters).map(letter => {
-    return letter.offsetLeft + letter.offsetWidth / 2; // center of letter
+    return letter.offsetLeft + letter.offsetWidth / 2;
 });
 const logoWidth = logo.offsetWidth;
 
@@ -202,31 +202,26 @@ const loader = setInterval(() => {
     // set progress width
     progress.style.width = width + "%";
 
-    // convert current progress to pixel position
+    // current progress in pixels
     const currentPos = (width / 100) * logoWidth;
 
     // show letters whose position <= current progress
     letters.forEach((letter, index) => {
-    if(currentPos >= letterPositions[index]){
-        if(!letter.classList.contains("show")){
-            // no need for inline transition, animation handles it
-            letter.classList.add("show");
+        if(currentPos >= letterPositions[index]){
+            if(!letter.classList.contains("show")){
+                letter.classList.add("show");
+            }
         }
+    });
+
+    if(width >= 100){
+        clearInterval(loader);
+        // start continuous gold sweep
+        logo.classList.add("sweep");
+
+        // show button after short delay
+        setTimeout(()=>{ button.classList.add("show"); }, 300);
     }
-});
-
-if(width >= 100){
-    clearInterval(loader);
-    // start gold sweep first
-    logo.classList.add("sweep");
-
-    // show button after sweep finishes
-    setTimeout(()=>{
-        button.classList.add("show");
-    }, 2200); // slightly longer than sweep duration (2s)
-}
-
-
 }, interval);
 
 function goNext(){
