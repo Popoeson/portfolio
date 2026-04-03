@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Popeson</title>
+
+<style>
+
+@font-face{
+    font-family: "Avalone";
+    src: url("Avalone.ttf");
+}
+
+body{
+    margin:0;
+    height:100vh;
+    background:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Avalone, serif;
+    overflow:hidden;
+}
+
+.container{
+    text-align:center;
+}
+
+.logo{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    font-size:60px;
+    color:#d4af37;
+    letter-spacing:6px;
+}
+
+.letter{
+    opacity:0;
+    transform:translateY(20px);
+    transition:all .8s ease;
+    text-shadow:0 0 8px rgba(212,175,55,.4);
+}
+
+.letter.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.loading-container{
+    width:100%;
+    margin-top:25px;
+}
+
+.loading-bar{
+    height:3px;
+    background:#222;
+    position:relative;
+    overflow:hidden;
+}
+
+.progress{
+    height:100%;
+    width:0%;
+    background:#d4af37;
+    transition:width .4s linear;
+}
+
+.continue-btn{
+    margin-top:40px;
+    padding:12px 40px;
+    border-radius:40px;
+    border:1px solid #d4af37;
+    background:transparent;
+    color:#d4af37;
+    font-size:16px;
+    letter-spacing:2px;
+    cursor:pointer;
+    opacity:0;
+    transition:.6s;
+}
+
+.continue-btn.show{
+    opacity:1;
+}
+
+.continue-btn:hover{
+    background:#d4af37;
+    color:#000;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">
+<span class="letter">P</span>
+<span class="letter">O</span>
+<span class="letter">P</span>
+<span class="letter">E</span>
+<span class="letter">S</span>
+<span class="letter">O</span>
+<span class="letter">N</span>
+</div>
+
+<div class="loading-container">
+<div class="loading-bar">
+<div class="progress"></div>
+</div>
+</div>
+
+<button class="continue-btn" onclick="goNext()">CONTINUE</button>
+
+</div>
+
+<script>
+
+const letters = document.querySelectorAll(".letter");
+const progress = document.querySelector(".progress");
+const button = document.querySelector(".continue-btn");
+
+let width = 0;
+let step = 100 / letters.length;
+let letterIndex = 0;
+
+let loader = setInterval(() => {
+
+    width += 1;
+    progress.style.width = width + "%";
+
+    if(width >= step * (letterIndex+1) && letterIndex < letters.length){
+        letters[letterIndex].classList.add("show");
+        letterIndex++;
+    }
+
+    if(width >= 100){
+        clearInterval(loader);
+        setTimeout(()=>{
+            button.classList.add("show");
+        },500);
+    }
+
+},50);
+
+
+function goNext(){
+    window.location.href = "home.html";
+}
+
+</script>
+
+</body>
+</html>
