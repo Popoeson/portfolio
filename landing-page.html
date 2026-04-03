@@ -7,177 +7,188 @@
 <style>
 
 @font-face{
-  font-family:"Avalone";
-  src:url("Avalone.ttf");
+    font-family:"Avalone";
+    src:url("Avalone.ttf");
 }
 
 body{
-  margin:0;
-  height:100vh;
-  background:#000;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-family:Avalone, serif;
-  overflow:hidden;
-  transition:opacity 1.6s ease;
+    margin:0;
+    height:100vh;
+    background:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Avalone, serif;
+    overflow:hidden;
+    transition:opacity 1.5s ease;
 }
 
 body.fade-out{
-  opacity:0;
+    opacity:0;
 }
 
 .container{
-  text-align:center;
+    text-align:center;
 }
 
-/* ================= TEXT ================= */
+/* ================= LOGO ================= */
 
 .logo{
-  display:flex;
-  justify-content:center;
-  gap:.5vw;
-  font-size:clamp(90px,10vw,180px);
-  color:#d4af37;
-  letter-spacing:.25em;
-  position:relative;
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    font-size:clamp(80px,10vw,170px);
+    color:#d4af37;
+    letter-spacing:6px;
+    position:relative;
 }
 
-/* letters fade only */
+/* letter reveal */
+
 .letter{
-  opacity:0;
-  transition:opacity 1s ease;
+    opacity:0;
+    transform:translateY(20px);
+    transition:all .8s ease;
+    text-shadow:0 0 8px rgba(212,175,55,.4);
 }
 
 .letter.show{
-  opacity:1;
+    opacity:1;
+    transform:translateY(0);
 }
 
 /* ================= GOLD SWEEP ================= */
 
 .logo::after{
-  content:"";
-  position:absolute;
-  top:0;
-  left:-160%;
-  width:60%;
-  height:100%;
-  background:linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,215,120,0.85),
-    transparent
-  );
-  transform:skewX(-25deg);
+    content:"";
+    position:absolute;
+    top:0;
+    left:-150%;
+    width:60%;
+    height:100%;
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,215,120,.85),
+        transparent
+    );
+    transform:skewX(-25deg);
 }
 
 .logo.sweep::after{
-  animation:sweep 4.5s linear infinite;
+    animation:sweep 4s linear infinite;
 }
 
 @keyframes sweep{
-  from{ left:-160%; }
-  to{ left:160%; }
+    from{left:-150%;}
+    to{left:150%;}
 }
 
-/* ================= GLOW PULSE ================= */
+/* ================= TEXT GLOW PULSE ================= */
 
 .logo.waiting{
-  animation:glowPulse 3s ease-in-out infinite;
+    animation:glowPulse 3s ease-in-out infinite;
 }
 
 @keyframes glowPulse{
 
-  0%{
-    text-shadow:0 0 8px rgba(212,175,55,.3);
-  }
+    0%{
+        text-shadow:0 0 10px rgba(212,175,55,.3);
+    }
 
-  50%{
-    text-shadow:0 0 30px rgba(212,175,55,.9);
-  }
+    50%{
+        text-shadow:0 0 35px rgba(212,175,55,.9);
+    }
 
-  100%{
-    text-shadow:0 0 8px rgba(212,175,55,.3);
-  }
+    100%{
+        text-shadow:0 0 10px rgba(212,175,55,.3);
+    }
 
 }
 
 /* ================= LOADING BAR ================= */
 
 .loading-container{
-  margin-top:35px;
+    width:100%;
+    margin-top:30px;
 }
 
 .loading-bar{
-  width:100%;
-  height:3px;
-  background:#222;
+    height:3px;
+    background:#222;
+    overflow:hidden;
 }
 
 .progress{
-  width:0%;
-  height:100%;
-  background:#d4af37;
+    height:100%;
+    width:0%;
+    background:#d4af37;
 }
 
 /* ================= BUTTON ================= */
 
 .continue-btn{
-  margin-top:70px;
-  padding:15px 55px;
-  border-radius:50px;
-  border:1px solid #d4af37;
-  background:transparent;
-  color:#d4af37;
-  font-size:18px;
-  letter-spacing:2px;
-  cursor:pointer;
+    margin-top:45px;
+    padding:14px 48px;
+    border-radius:40px;
+    border:1px solid #d4af37;
+    background:transparent;
+    color:#d4af37;
+    font-size:18px;
+    letter-spacing:2px;
+    cursor:pointer;
 
-  transform:translateY(-120px);
-  opacity:0;
-}
-
-/* drop once */
-.continue-btn.show{
-  animation:drop 1.2s ease forwards;
-}
-
-@keyframes drop{
-
-  from{
-    transform:translateY(-120px);
     opacity:0;
-  }
+    transform:scale(.85);
+}
 
-  to{
-    transform:translateY(0);
-    opacity:1;
-  }
+/* cinematic appear without moving layout */
+
+.continue-btn.show{
+    animation:fadePop 1s ease forwards;
+}
+
+@keyframes fadePop{
+
+    0%{
+        opacity:0;
+        transform:scale(.85);
+    }
+
+    70%{
+        opacity:1;
+        transform:scale(1.05);
+    }
+
+    100%{
+        opacity:1;
+        transform:scale(1);
+    }
 
 }
 
 .continue-btn:hover{
-  background:#d4af37;
-  color:#000;
+    background:#d4af37;
+    color:#000;
 }
 
 /* button click pulse */
 
 .continue-btn.clicked{
-  animation:buttonPulse .6s ease;
+    animation:buttonPulse .6s ease;
 }
 
 @keyframes buttonPulse{
 
-  0%{transform:scale(1);}
+    0%{transform:scale(1);}
 
-  50%{
-    transform:scale(1.15);
-    background:#d4af37;
-    color:#000;
-  }
+    50%{
+        transform:scale(1.15);
+        background:#d4af37;
+        color:#000;
+    }
 
-  100%{transform:scale(1);}
+    100%{transform:scale(1);}
 
 }
 
@@ -219,31 +230,32 @@ let width = 0;
 let step = 100 / letters.length;
 let letterIndex = 0;
 
-/* slower majestic loading */
+/* slower cinematic loading */
+
 let loader = setInterval(()=>{
 
-  width += 0.5;   // slower movement
-  progress.style.width = width + "%";
+    width += 0.5;
+    progress.style.width = width + "%";
 
-  if(width >= step*(letterIndex+1) && letterIndex < letters.length){
-    letters[letterIndex].classList.add("show");
-    letterIndex++;
-  }
+    if(width >= step * (letterIndex+1) && letterIndex < letters.length){
+        letters[letterIndex].classList.add("show");
+        letterIndex++;
+    }
 
-  if(width >= 100){
+    if(width >= 100){
 
-    clearInterval(loader);
+        clearInterval(loader);
 
-    setTimeout(()=>{
+        setTimeout(()=>{
 
-      logo.classList.add("sweep");
-      logo.classList.add("waiting");
+            logo.classList.add("sweep");
+            logo.classList.add("waiting");
 
-      button.classList.add("show");
+            button.classList.add("show");
 
-    },600);
+        },500);
 
-  }
+    }
 
 },40);
 
@@ -252,17 +264,17 @@ let loader = setInterval(()=>{
 
 button.addEventListener("click",()=>{
 
-  button.classList.add("clicked");
-
-  setTimeout(()=>{
-
-    document.body.classList.add("fade-out");
+    button.classList.add("clicked");
 
     setTimeout(()=>{
-      window.location.href="home.html";
-    },1500);
 
-  },350);
+        document.body.classList.add("fade-out");
+
+        setTimeout(()=>{
+            window.location.href="home.html";
+        },1500);
+
+    },350);
 
 });
 
