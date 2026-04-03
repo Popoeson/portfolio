@@ -7,183 +7,178 @@
 <style>
 
 @font-face{
-    font-family:"Avalone";
-    src:url("Avalone.ttf");
+  font-family:"Avalone";
+  src:url("Avalone.ttf");
 }
 
 body{
-    margin:0;
-    height:100vh;
-    background:#000;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-family:Avalone, serif;
-    overflow:hidden;
-    transition:opacity 1.5s ease;
+  margin:0;
+  height:100vh;
+  background:#000;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:Avalone, serif;
+  overflow:hidden;
+  transition:opacity 1.6s ease;
 }
 
 body.fade-out{
-    opacity:0;
+  opacity:0;
 }
 
 .container{
-    text-align:center;
+  text-align:center;
 }
 
 /* ================= TEXT ================= */
 
 .logo{
-    display:flex;
-    justify-content:center;
-    gap:.5vw;
-    font-size:clamp(90px,10vw,180px);
-    color:#d4af37;
-    letter-spacing:.25em;
-    position:relative;
+  display:flex;
+  justify-content:center;
+  gap:.5vw;
+  font-size:clamp(90px,10vw,180px);
+  color:#d4af37;
+  letter-spacing:.25em;
+  position:relative;
 }
 
-/* letters fade in only (no movement) */
+/* letters fade only */
 .letter{
-    opacity:0;
-    transition:opacity .8s ease;
+  opacity:0;
+  transition:opacity 1s ease;
 }
 
 .letter.show{
-    opacity:1;
+  opacity:1;
 }
 
 /* ================= GOLD SWEEP ================= */
 
 .logo::after{
-    content:"";
-    position:absolute;
-    top:0;
-    left:-150%;
-    width:60%;
-    height:100%;
-    background:linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,215,120,0.9),
-        transparent
-    );
-    transform:skewX(-25deg);
+  content:"";
+  position:absolute;
+  top:0;
+  left:-160%;
+  width:60%;
+  height:100%;
+  background:linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,215,120,0.85),
+    transparent
+  );
+  transform:skewX(-25deg);
 }
 
-/* continuous sweep */
 .logo.sweep::after{
-    animation:sweep 3.5s linear infinite;
+  animation:sweep 4.5s linear infinite;
 }
 
 @keyframes sweep{
-    0%{ left:-150%; }
-    100%{ left:150%; }
+  from{ left:-160%; }
+  to{ left:160%; }
 }
 
-/* ================= TEXT PULSE ================= */
+/* ================= GLOW PULSE ================= */
 
 .logo.waiting{
-    animation:textPulse 2.5s ease-in-out infinite;
+  animation:glowPulse 3s ease-in-out infinite;
 }
 
-@keyframes textPulse{
+@keyframes glowPulse{
 
-    0%{
-        text-shadow:0 0 8px rgba(212,175,55,.3);
-    }
+  0%{
+    text-shadow:0 0 8px rgba(212,175,55,.3);
+  }
 
-    50%{
-        text-shadow:0 0 25px rgba(212,175,55,.9);
-    }
+  50%{
+    text-shadow:0 0 30px rgba(212,175,55,.9);
+  }
 
-    100%{
-        text-shadow:0 0 8px rgba(212,175,55,.3);
-    }
+  100%{
+    text-shadow:0 0 8px rgba(212,175,55,.3);
+  }
 
 }
 
 /* ================= LOADING BAR ================= */
 
 .loading-container{
-    margin-top:35px;
+  margin-top:35px;
 }
 
 .loading-bar{
-    width:100%;
-    height:3px;
-    background:#222;
+  width:100%;
+  height:3px;
+  background:#222;
 }
 
 .progress{
-    width:0%;
-    height:100%;
-    background:#d4af37;
+  width:0%;
+  height:100%;
+  background:#d4af37;
 }
 
 /* ================= BUTTON ================= */
 
 .continue-btn{
-    margin-top:70px;
-    padding:15px 55px;
-    border-radius:50px;
-    border:1px solid #d4af37;
-    background:transparent;
-    color:#d4af37;
-    font-size:18px;
-    letter-spacing:2px;
-    cursor:pointer;
+  margin-top:70px;
+  padding:15px 55px;
+  border-radius:50px;
+  border:1px solid #d4af37;
+  background:transparent;
+  color:#d4af37;
+  font-size:18px;
+  letter-spacing:2px;
+  cursor:pointer;
 
-    transform:translateY(-120px);
-    opacity:0;
+  transform:translateY(-120px);
+  opacity:0;
 }
 
-/* drop animation */
+/* drop once */
 .continue-btn.show{
-    animation:drop 1.2s ease forwards;
+  animation:drop 1.2s ease forwards;
 }
 
 @keyframes drop{
 
-    0%{
-        transform:translateY(-120px);
-        opacity:0;
-    }
+  from{
+    transform:translateY(-120px);
+    opacity:0;
+  }
 
-    100%{
-        transform:translateY(0);
-        opacity:1;
-    }
-
-}
-
-/* button pulse when clicked */
-
-.continue-btn.clicked{
-    animation:buttonPulse .7s ease;
-}
-
-@keyframes buttonPulse{
-
-    0%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.15);
-        background:#d4af37;
-        color:#000;
-    }
-
-    100%{
-        transform:scale(1);
-    }
+  to{
+    transform:translateY(0);
+    opacity:1;
+  }
 
 }
 
 .continue-btn:hover{
+  background:#d4af37;
+  color:#000;
+}
+
+/* button click pulse */
+
+.continue-btn.clicked{
+  animation:buttonPulse .6s ease;
+}
+
+@keyframes buttonPulse{
+
+  0%{transform:scale(1);}
+
+  50%{
+    transform:scale(1.15);
     background:#d4af37;
     color:#000;
+  }
+
+  100%{transform:scale(1);}
+
 }
 
 </style>
@@ -224,49 +219,50 @@ let width = 0;
 let step = 100 / letters.length;
 let letterIndex = 0;
 
+/* slower majestic loading */
 let loader = setInterval(()=>{
 
-    width += 1;
-    progress.style.width = width + "%";
+  width += 0.5;   // slower movement
+  progress.style.width = width + "%";
 
-    if(width >= step * (letterIndex+1) && letterIndex < letters.length){
-        letters[letterIndex].classList.add("show");
-        letterIndex++;
-    }
+  if(width >= step*(letterIndex+1) && letterIndex < letters.length){
+    letters[letterIndex].classList.add("show");
+    letterIndex++;
+  }
 
-    if(width >= 100){
+  if(width >= 100){
 
-        clearInterval(loader);
-
-        setTimeout(()=>{
-
-            /* start sweep + pulse waiting */
-            logo.classList.add("sweep");
-            logo.classList.add("waiting");
-
-            button.classList.add("show");
-
-        },400);
-    }
-
-},45);
-
-
-/* button click effect + fade */
-
-button.addEventListener("click",()=>{
-
-    button.classList.add("clicked");
+    clearInterval(loader);
 
     setTimeout(()=>{
 
-        document.body.classList.add("fade-out");
+      logo.classList.add("sweep");
+      logo.classList.add("waiting");
 
-        setTimeout(()=>{
-            window.location.href="home.html";
-        },1500);
+      button.classList.add("show");
 
-    },400);
+    },600);
+
+  }
+
+},40);
+
+
+/* button click */
+
+button.addEventListener("click",()=>{
+
+  button.classList.add("clicked");
+
+  setTimeout(()=>{
+
+    document.body.classList.add("fade-out");
+
+    setTimeout(()=>{
+      window.location.href="home.html";
+    },1500);
+
+  },350);
 
 });
 
