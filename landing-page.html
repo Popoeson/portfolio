@@ -3,9 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Popeson</title>
-
 <style>
-
 @font-face{
     font-family: "Avalone";
     src: url("Avalone.ttf");
@@ -20,24 +18,47 @@ body{
     align-items:center;
     font-family:Avalone, serif;
     overflow:hidden;
+    transition:opacity 1.5s ease;
 }
 
+body.fade-out{
+    opacity:0;
+}
+
+/* fixed container to prevent page resizing */
 .container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
     text-align:center;
+    gap:30px; /* spacing between logo, bar, button */
+    max-height:100%;
 }
 
+/* ================= LOGO ================= */
 .logo{
     display:flex;
     justify-content:center;
     gap:8px;
-    font-size:60px;
+    font-size:clamp(120px,10vw,180px); 
     color:#d4af37;
     letter-spacing:6px;
+    position:relative;
 }
 
+/* letters fade only, no vertical shift */
+.letter{
+    opacity:0;
+    transition:opacity .8s ease;
+    text-shadow:0 0 8px rgba(212,175,55,.4);
+}
+
+.letter.show{
+    opacity:1;
+}
 
 /* ================= GOLD SWEEP ================= */
-
 .logo::after{
     content:"";
     position:absolute;
@@ -64,7 +85,6 @@ body{
 }
 
 /* ================= TEXT GLOW PULSE ================= */
-
 .logo.waiting{
     animation:glowPulse 3s ease-in-out infinite;
 }
@@ -75,27 +95,15 @@ body{
     100%{ text-shadow:0 0 10px rgba(212,175,55,.3); }
 }
 
-.letter{
-    opacity:0;
-    transform:translateY(20px);
-    transition:all .8s ease;
-    text-shadow:0 0 8px rgba(212,175,55,.4);
-}
-
-.letter.show{
-    opacity:1;
-    transform:translateY(0);
-}
-
+/* ================= LOADING BAR ================= */
 .loading-container{
-    width:100%;
-    margin-top:25px;
+    width:50%; /* relative to container */
+    max-width:400px;
 }
 
 .loading-bar{
     height:3px;
     background:#222;
-    position:relative;
     overflow:hidden;
 }
 
@@ -103,13 +111,10 @@ body{
     height:100%;
     width:0%;
     background:#d4af37;
-    transition:width .4s linear;
 }
 
 /* ================= BUTTON ================= */
-
 .continue-btn{
-    margin-top:45px;
     padding:14px 48px;
     border-radius:40px;
     border:1px solid #d4af37;
@@ -123,7 +128,6 @@ body{
     transform:scale(.85);
 }
 
-/* cinematic appear without moving layout */
 .continue-btn.show{
     animation:fadePop 1s ease forwards;
 }
@@ -139,7 +143,6 @@ body{
     color:#000;
 }
 
-/* button click pulse */
 .continue-btn.clicked{
     animation:buttonPulse .6s ease;
 }
@@ -149,32 +152,29 @@ body{
     50%{ transform:scale(1.15); background:#d4af37; color:#000; }
     100%{ transform:scale(1); }
 }
-
-
 </style>
 </head>
-
 <body>
 
 <div class="container">
 
-<div class="logo">
-<span class="letter">P</span>
-<span class="letter">O</span>
-<span class="letter">P</span>
-<span class="letter">E</span>
-<span class="letter">S</span>
-<span class="letter">O</span>
-<span class="letter">N</span>
-</div>
+    <div class="logo">
+        <span class="letter">P</span>
+        <span class="letter">O</span>
+        <span class="letter">P</span>
+        <span class="letter">E</span>
+        <span class="letter">S</span>
+        <span class="letter">O</span>
+        <span class="letter">N</span>
+    </div>
 
-<div class="loading-container">
-<div class="loading-bar">
-<div class="progress"></div>
-</div>
-</div>
+    <div class="loading-container">
+        <div class="loading-bar">
+            <div class="progress"></div>
+        </div>
+    </div>
 
-<button class="continue-btn" onclick="goNext()">CONTINUE</button>
+    <button class="continue-btn" onclick="goNext()">CONTINUE</button>
 
 </div>
 
@@ -188,12 +188,10 @@ let width = 0;
 let step = 100 / letters.length;
 let letterIndex = 0;
 
-/* slow cinematic loading */
 let loader = setInterval(()=>{
-    width += 0.5; // slow progress
+    width += 0.5;
     progress.style.width = width + "%";
 
-    // show letters exactly at their progress step
     if(width >= step * (letterIndex+1) && letterIndex < letters.length){
         letters[letterIndex].classList.add("show");
         letterIndex++;
@@ -202,22 +200,18 @@ let loader = setInterval(()=>{
     if(width >= 100){
         clearInterval(loader);
         setTimeout(()=>{
-            logo.classList.add("sweep"); // gold sweep
-            logo.classList.add("waiting"); // pulse glow
-            button.classList.add("show"); // cinematic button
+            logo.classList.add("sweep");
+            logo.classList.add("waiting");
+            button.classList.add("show");
         },500);
     }
-
 },40);
 
-/* button click fade-out */
 function goNext(){
     button.classList.add("clicked");
     setTimeout(()=>{
         document.body.classList.add("fade-out");
-        setTimeout(()=>{
-            window.location.href="home.html";
-        },1500);
+        setTimeout(()=>{ window.location.href="home.html"; },1500);
     },350);
 }
 </script>
