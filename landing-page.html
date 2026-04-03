@@ -58,47 +58,9 @@ body.fade-out{
     opacity:1;
 }
 
-/* ================= GOLD SWEEP ================= */
-.logo::after{
-    content:"";
-    position:absolute;
-    top:0;
-    left:-150%;
-    width:60%;
-    height:100%;
-    background:linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,215,120,.85),
-        transparent
-    );
-    transform:skewX(-25deg);
-}
-
-.logo.sweep::after{
-    animation:sweep 4s linear infinite;
-}
-
-@keyframes sweep{
-    from{ left:-150%; }
-    to{ left:150%; }
-}
-
-/* ================= TEXT GLOW PULSE ================= */
-.logo.waiting{
-    animation:glowPulse 3s ease-in-out infinite;
-}
-
-@keyframes glowPulse{
-    0%{ text-shadow:0 0 10px rgba(212,175,55,.3); }
-    50%{ text-shadow:0 0 35px rgba(212,175,55,.9); }
-    100%{ text-shadow:0 0 10px rgba(212,175,55,.3); }
-}
-
 /* ================= LOADING BAR ================= */
 .loading-container{
-    width:50%; /* relative to container */
-    max-width:400px;
+    width:fit-content; /* match logo width */
 }
 
 .loading-bar{
@@ -184,6 +146,10 @@ const progress = document.querySelector(".progress");
 const logo = document.querySelector(".logo");
 const button = document.querySelector(".continue-btn");
 
+// set loading bar width same as logo
+const loadingContainer = document.querySelector('.loading-container');
+loadingContainer.style.width = logo.offsetWidth + "px";
+
 let width = 0;
 let step = 100 / letters.length;
 let letterIndex = 0;
@@ -200,11 +166,10 @@ let loader = setInterval(()=>{
     if(width >= 100){
         clearInterval(loader);
         setTimeout(()=>{
-            logo.classList.add("sweep");
-            logo.classList.add("waiting");
             button.classList.add("show");
         },500);
     }
+
 },40);
 
 function goNext(){
