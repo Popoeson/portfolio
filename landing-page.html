@@ -55,6 +55,18 @@ body.fade-out{
     opacity:1;
 }
 
+/* ================= CINEMATIC LETTER FADE ================= */
+.letter.show{
+    opacity:1;
+    animation:fadePopLetter 0.8s ease forwards;
+}
+
+@keyframes fadePopLetter{
+    0% { opacity:0; transform: scale(0.85); }
+    70% { opacity:1; transform: scale(1.05); }
+    100% { opacity:1; transform: scale(1); }
+}
+
 .loading-container{
     width:fit-content;
 }
@@ -167,13 +179,13 @@ const loader = setInterval(() => {
 
     // show letters whose position <= current progress
     letters.forEach((letter, index) => {
-        if(currentPos >= letterPositions[index]){
-            if(!letter.classList.contains("show")){
-                letter.style.transition = "opacity 0.3s ease"; // smooth fade
-                letter.classList.add("show");
-            }
+    if(currentPos >= letterPositions[index]){
+        if(!letter.classList.contains("show")){
+            // no need for inline transition, animation handles it
+            letter.classList.add("show");
         }
-    });
+    }
+});
 
     if(width >= 100){
         clearInterval(loader);
