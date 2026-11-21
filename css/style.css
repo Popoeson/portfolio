@@ -77,3 +77,6 @@ h1 b{font-size:2.6rem}
 .grid,.grid.sm{grid-template-columns:1fr}
 .pv{height:200px}
 }
+.grid.collapsed .more{display:none}
+.morebar{text-align:center;margin-top:34px}
+button.btn{background:none;color:inherit;font-family:inherit;cursor:pointer}
