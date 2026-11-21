@@ -2,545 +2,100 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Resume — Popoola Samuel</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Resume | Samuel Popoola</title>
+<meta name="description" content="Resume of Samuel Popoola: full stack developer, product designer and assistant lecturer in Nigeria.">
+<link rel="canonical" href="https://samuelpopoola.vercel.app/resume.html">
+<link rel="icon" href="/images/techwise.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 <style>
-
-/* GLOBAL */
-
-body{
-margin:0;
-font-family:Arial, Helvetica, sans-serif;
-background:#0b0b0b;
-color:white;
-line-height:1.7;
-}
-
-/* CONTAINER */
-
-.container{
-max-width:1100px;
-margin:auto;
-padding:100px 20px;
-}
-
-/* HEADERS */
-
-.section-header{
-text-align:center;
-margin-bottom:60px;
-}
-
-.section-header h2{
-font-size:38px;
-margin-bottom:10px;
-}
-
-.section-header p{
-color:#aaa;
-}
-
-.underline{
-width:80px;
-height:4px;
-background:#f59e0b;
-margin:10px auto 20px;
-}
-
-/* HERO */
-
-.resume-hero{
-text-align:center;
-padding-top:120px;
-padding-bottom:60px;
-}
-
-.resume-hero h1{
-font-size:42px;
-margin-bottom:8px;
-}
-
-.resume-hero p{
-color:#aaa;
-margin-bottom:25px;
-}
-
-.contact-links{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:20px;
-}
-
-.contact-links a{
-color:#f59e0b;
-text-decoration:none;
-font-size:14px;
-}
-
-/* BUTTON */
-
-.btn{
-display:inline-block;
-margin-top:25px;
-padding:12px 24px;
-border-radius:6px;
-background:#f59e0b;
-color:black;
-font-weight:600;
-text-decoration:none;
-}
-
-/* CARD */
-
-.card{
-background:#111;
-border:1px solid #2a2a2a;
-border-radius:12px;
-padding:30px;
-}
-
-/* SUMMARY */
-
-.summary{
-max-width:750px;
-margin:auto;
-text-align:center;
-color:#aaa;
-}
-
-/* EXPERIENCE */
-
-.experience-card h3{
-margin-bottom:8px;
-}
-
-.experience-card span{
-color:#f59e0b;
-font-size:14px;
-}
-
-.experience-card ul{
-margin-top:15px;
-color:#aaa;
-}
-
-/* PROJECTS */
-
-.projects-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.project-card{
-background:#111;
-border:1px solid #2a2a2a;
-border-radius:12px;
-padding:25px;
-}
-
-.project-card h4{
-margin-bottom:10px;
-}
-
-.project-card p{
-color:#aaa;
-font-size:14px;
-}
-
-.project-card a{
-display:inline-block;
-margin-top:10px;
-color:#f59e0b;
-text-decoration:none;
-font-size:14px;
-}
-
-/* SKILLS */
-
-.skills-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:20px;
-}
-
-.skill-card{
-background:#111;
-border:1px solid #2a2a2a;
-border-radius:12px;
-padding:25px;
-}
-
-.skill-card h4{
-margin-bottom:10px;
-color:#f59e0b;
-}
-
-.skill-card p{
-color:#aaa;
-font-size:14px;
-}
-
-/* EDUCATION */
-
-.education-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.edu-card{
-background:#111;
-border:1px solid #2a2a2a;
-border-radius:12px;
-padding:25px;
-}
-
-.edu-card h4{
-margin-bottom:6px;
-}
-
-.edu-card span{
-color:#aaa;
-font-size:14px;
-}
-
-/* AVAILABILITY */
-
-.availability{
-text-align:center;
-max-width:650px;
-margin:auto;
-color:#aaa;
-}
-
-/* FOOTER */
-
-footer{
-text-align:center;
-padding:40px 20px;
-border-top:1px solid #2a2a2a;
-color:#777;
-margin-top:100px;
-}
-
-/* REVEAL */
-
-.reveal{
-opacity:0;
-transform:translateY(40px);
-transition:all .8s ease;
-}
-
-.reveal.active{
-opacity:1;
-transform:translateY(0);
-}
-
+.r section{padding:34px 8%;max-width:1000px;margin:auto}
+.rh{text-align:center;padding:90px 8% 10px;position:relative}
+.rh h1{font-size:2.4rem;font-weight:700}
+.rh p{color:var(--muted);margin:8px 0 18px}
+.rh .row a:not(.btn){color:var(--accent);font-size:14px}
+.back{position:absolute;top:24px;left:5%;color:var(--muted);font-size:14px}
+.sum{color:var(--muted);line-height:1.8;text-align:center;max-width:760px;margin:auto}
+.stack{display:grid;gap:18px}
+.card ul{color:var(--muted);padding-left:20px;line-height:1.7;font-size:.95rem}
+.card time{color:var(--accent);font-size:.85rem;font-weight:600}
+.card h3 small{display:block;color:#d1d5db;font-size:.95rem;font-weight:400;margin-top:2px}
+.card a.lk{color:var(--accent);font-size:14px;margin-top:auto}
+.card:hover{transform:none}
 </style>
 </head>
+<body class="r">
 
-<body>
-
-<!-- HERO -->
-
-<section class="resume-hero reveal">
-
+<div class="rh">
+<a class="back" href="index.html">← Portfolio</a>
 <h1>Popoola Samuel Olumide</h1>
-<p>Web Developer — Nigeria</p>
-
-<div class="contact-links">
-
-<a href="mailto:samuelpopoola323@gmail.com">
-📧 samuelpopoola323@gmail.com
-</a>
-
-<a href="https://wa.me/2349122054068">
-📞 09122054068
-</a>
-
-<a href="https://samuelpopoola.vercel.app">
-🌐 samuelpopoola.vercel.app
-</a>
-
+<p>Full Stack Developer · Product Designer · Assistant Lecturer<br>Nigeria</p>
+<div class="row">
+<a href="mailto:samuelpopoola323@gmail.com">📧 samuelpopoola323@gmail.com</a>
+<a href="https://wa.me/2349122054068">📞 09122054068</a>
+<a href="https://samuelpopoola.vercel.app">🌐 samuelpopoola.vercel.app</a>
+</div>
+<p><a class="btn pri" href="resume.pdf" download="Samuel-Popoola-Resume.pdf">Download Resume</a></p>
 </div>
 
-<a id="downloadBtn" class="btn" href="resume.pdf" download="Popoola-Samuel-Resume.pdf">
-Download Resume
-</a>
-
+<section>
+<div class="head"><h2>Professional Summary</h2></div>
+<p class="sum">Full stack developer and product designer, and Assistant Lecturer at Owu College of Management Technology. I build complete platforms for education, payments, and commerce with clean interfaces and solid backend logic, prioritizing performance, security, and usability.</p>
 </section>
 
-<!-- SUMMARY -->
-
-<section class="container">
-
-<div class="section-header reveal">
-
-<h2>Professional Summary</h2>
-
-<div class="underline"></div>
-
+<section>
+<div class="head"><h2>Experience</h2></div>
+<div class="stack">
+<div class="card"><time>2026 – Present</time><h3>Product Designer<small>Vendormart</small></h3>
+<ul><li>Defined the product from scratch: user flows and a 26-page specification</li><li>Set payment, escrow, vendor plan, and dispute rules</li><li>Built an interactive prototype</li></ul></div>
+<div class="card"><time>2024 – Present</time><h3>Assistant Lecturer<small>Owu College of Management Technology</small></h3>
+<ul><li>Support teaching and coursework at the polytechnic level</li></ul></div>
+<div class="card"><time>2023 – Present</time><h3>Full Stack Developer<small>Independent</small></h3>
+<ul><li>Designed and deployed full-stack web applications</li><li>Built authentication systems, dashboards, and payment integrations</li><li>Handled deployment, performance optimization, and security</li></ul></div>
+<div class="card"><time>2021 – 2023</time><h3>Early Development &amp; Freelance</h3>
+<ul><li>Built websites and small apps for local businesses and learned full-stack workflows, deployment, and version control</li></ul></div>
 </div>
-
-<div class="summary card reveal">
-
-Web developer focused on building complete online experiences with clean interfaces, intuitive navigation, and solid backend logic. I turn ideas into functional digital products—from educational systems and dashboards to e-commerce and business platforms—prioritizing performance, security, and usability.
-
-</div>
-
 </section>
 
-<!-- EXPERIENCE -->
-
-<section class="container">
-
-<div class="section-header reveal">
-
-<h2>Experience</h2>
-
-<div class="underline"></div>
-
+<section>
+<div class="head"><h2>Selected Projects</h2></div>
+<div class="grid sm">
+<div class="card"><h3>TestPro (CBT System)</h3><p>Remote exams with token access, timers, auto-submission, grading, admin panel, and result export.</p><a class="lk" href="https://cbt-system-vert.vercel.app/homepage.html" target="_blank" rel="noopener">Live Project →</a></div>
+<div class="card"><h3>MyPortal (School Portal)</h3><p>Student and course registration, results display, and multi-level admin control.</p><a class="lk" href="https://ict-reg.vercel.app/" target="_blank" rel="noopener">Live Project →</a></div>
+<div class="card"><h3>Tasty Bites (Restaurant)</h3><p>Online meal ordering with payments, WhatsApp order summary, and stock management.</p><a class="lk" href="https://restaurant-plum.vercel.app/" target="_blank" rel="noopener">Live Project →</a></div>
+<div class="card"><h3>Abby Secret (Boutique)</h3><p>E-commerce boutique with online payments, inventory control, and WhatsApp notifications.</p><a class="lk" href="https://abby-nu.vercel.app/home.html" target="_blank" rel="noopener">Live Project →</a></div>
+<div class="card"><h3>Campus Payment Platform (In development)</h3><p>Polytechnic fee payments via Paystack with virtual accounts, a four-tier staff hierarchy, and JWT auth.</p></div>
+<div class="card"><h3>Akowe AI (In development)</h3><p>AI-powered academic e-library searching 8 sources, with AI topic summaries.</p><a class="lk" href="https://e-library-two-tau.vercel.app/" target="_blank" rel="noopener">Preview →</a></div>
+<div class="card"><h3>Vendormart (In design)</h3><p>Marketplace for physical-market vendors: 26-page specification and interactive prototype.</p><a class="lk" href="https://www.magicpatterns.com/c/fu7ejytawa8qipopsy69ym/preview" target="_blank" rel="noopener">Prototype →</a></div>
 </div>
-
-<div class="card experience-card reveal">
-
-<h3>Project-Based Web Development</h3>
-<span>2024 – Present</span>
-
-<ul>
-<li>Designed and deployed full-stack web applications</li>
-<li>Built authentication systems, dashboards, and payment integrations</li>
-<li>Handled deployment, performance optimization, and security</li>
-</ul>
-
-</div>
-
 </section>
 
-<!-- PROJECTS -->
-
-<section class="container">
-
-<div class="section-header reveal">
-
-<h2>Selected Projects</h2>
-
-<div class="underline"></div>
-
+<section>
+<div class="head"><h2>Skills</h2></div>
+<div class="grid sm">
+<div class="card"><h3>Frontend</h3><p>HTML, CSS, JavaScript</p></div>
+<div class="card"><h3>Backend</h3><p>Node.js, Express, REST APIs</p></div>
+<div class="card"><h3>Database</h3><p>MongoDB, MongoDB Atlas, Mongoose</p></div>
+<div class="card"><h3>Payments &amp; Security</h3><p>Paystack, JWT, Google OAuth</p></div>
+<div class="card"><h3>Tools &amp; Hosting</h3><p>GitHub, GitHub Actions, Vercel, Render, Cloudinary</p></div>
+<div class="card"><h3>AI &amp; Design</h3><p>Groq, OpenAI APIs, Specifications, Prototyping</p></div>
 </div>
-
-<div class="projects-grid">
-
-<div class="project-card reveal">
-
-<h4>TestPro (CBT System)</h4>
-
-<p>
-Remote examination platform with token-based access, timers, auto-submission, grading, admin panel, and result export.
-</p>
-
-<a href="#">Live Project →</a>
-
-</div>
-
-<div class="project-card reveal">
-
-<h4>MyPortal (School Portal)</h4>
-
-<p>
-Academic management system for student registration, course registration, results display, and multi-level admin control.
-</p>
-
-<a href="#">Live Project →</a>
-
-</div>
-
-<div class="project-card reveal">
-
-<h4>Tasty Bites (Restaurant)</h4>
-
-<p>
-Online meal ordering platform with payments, WhatsApp order summary, and stock management admin panel.
-</p>
-
-<a href="#">Live Project →</a>
-
-</div>
-
-<div class="project-card reveal">
-
-<h4>Abby Secret (Boutique)</h4>
-
-<p>
-E-commerce boutique with online payments, admin inventory control, and WhatsApp notifications.
-</p>
-
-<a href="#">Live Project →</a>
-
-</div>
-
-</div>
-
 </section>
 
-<!-- SKILLS -->
-
-<section class="container">
-
-<div class="section-header reveal">
-
-<h2>Skills</h2>
-
-<div class="underline"></div>
-
+<section>
+<div class="head"><h2>Education</h2></div>
+<div class="grid sm">
+<div class="card"><h3>HND (In View)</h3><p>Computer Science, Grace Polytechnic<br>2025 – Present</p></div>
+<div class="card"><h3>National Diploma (ND)</h3><p>Computer Science, Grace Polytechnic<br>2023 – 2025</p></div>
 </div>
-
-<div class="skills-grid">
-
-<div class="skill-card reveal">
-<h4>Frontend</h4>
-<p>HTML, CSS, JavaScript</p>
-</div>
-
-<div class="skill-card reveal">
-<h4>Backend</h4>
-<p>Node.js, Express</p>
-</div>
-
-<div class="skill-card reveal">
-<h4>Database</h4>
-<p>MongoDB</p>
-</div>
-
-<div class="skill-card reveal">
-<h4>Tools</h4>
-<p>GitHub, Vercel, Render, Cloudinary</p>
-</div>
-
-<div class="skill-card reveal">
-<h4>AI</h4>
-<p>OpenAI API</p>
-</div>
-
-</div>
-
 </section>
 
-<!-- EDUCATION -->
-
-<section class="container">
-
-<div class="section-header reveal">
-
-<h2>Education</h2>
-
-<div class="underline"></div>
-
-</div>
-
-<div class="education-grid">
-
-<div class="edu-card reveal">
-
-<h4>HND (In View)</h4>
-
-<span>Computer Science — Grace Polytechnic</span>
-
-<p>2025 – Present</p>
-
-</div>
-
-<div class="edu-card reveal">
-
-<h4>National Diploma (ND)</h4>
-
-<span>Computer Science — Grace Polytechnic</span>
-
-<p>2023 – 2025</p>
-
-</div>
-
-</div>
-
+<section>
+<div class="head"><h2>Availability</h2></div>
+<p class="sum">Open to freelance projects, part-time roles, and opportunities to build, learn, and grow.</p>
 </section>
 
-<!-- AVAILABILITY -->
-
-<section class="container">
-
-<div class="section-header reveal">
-
-<h2>Availability</h2>
-
-<div class="underline"></div>
-
-</div>
-
-<div class="availability reveal card">
-
-Open to freelance projects, part-time roles, and opportunities to build, learn, and grow.
-
-</div>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer>
-
-© 2026 Popoola Samuel — TechWise Technology
-
-</footer>
-
-<script>
-
-// reveal animations
-
-const reveals = document.querySelectorAll(".reveal");
-
-const observer = new IntersectionObserver(entries => {
-
-entries.forEach(entry => {
-
-if(entry.isIntersecting){
-
-entry.target.classList.add("active");
-
-}
-
-});
-
-},{threshold:0.2});
-
-reveals.forEach(el=>observer.observe(el));
-
-/* DOWNLOAD BUTTON EFFECT */
-
-const downloadBtn = document.getElementById("downloadBtn");
-
-downloadBtn.addEventListener("click", function(){
-
-// change text
-downloadBtn.textContent = "Downloading...";
-
-// disable multiple clicks
-downloadBtn.style.pointerEvents = "none";
-
-// restore after short delay
-setTimeout(() => {
-
-downloadBtn.textContent = "Download Resume";
-downloadBtn.style.pointerEvents = "auto";
-
-}, 2500);
-
-});
-
-</script>
-
+<footer>© 2026 Samuel Popoola. Built with <span>TechWise Technology</span>.</footer>
 </body>
 </html>
